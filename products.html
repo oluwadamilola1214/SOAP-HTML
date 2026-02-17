@@ -128,78 +128,56 @@ button{
     <div class="card">
       <img src="https://dummyimage.com/300x200/ff7f50/ffffff&text=500ml" alt="500ml Soap">
       <h3>500ml Liquid Soap</h3>
-      <p>₦500 per piece</p>
+      <p>₦900 per piece</p>
       <input type="number" min="1" max="500" value="1" class="quantity-input" id="q3">
-      <button onclick="addToCart('500ml Liquid Soap',500,'q3')">Add to Cart</button>
+      <button onclick="addToCart('500ml Liquid Soap',900,'q3')">Add to Cart</button>
     </div>
 
     <!-- 1 Litre -->
     <div class="card">
       <img src="https://dummyimage.com/300x200/ff7f50/ffffff&text=1L" alt="1 Litre Soap">
       <h3>1 Litre Liquid Soap</h3>
-      <p>₦900 per piece</p>
+      <p>₦2000 per piece</p>
       <input type="number" min="1" max="500" value="1" class="quantity-input" id="q4">
-      <button onclick="addToCart('1 Litre Liquid Soap',900,'q4')">Add to Cart</button>
+      <button onclick="addToCart('1 Litre Liquid Soap',2000,'q4')">Add to Cart</button>
     </div>
 
     <!-- 2.5 Litres -->
     <div class="card">
       <img src="https://dummyimage.com/300x200/ff7f50/ffffff&text=2.5L" alt="2.5 Litres Soap">
       <h3>2.5 Litres Liquid Soap</h3>
-      <p>₦2000 per piece</p>
+      <p>₦3500 per piece</p>
       <input type="number" min="1" max="500" value="1" class="quantity-input" id="q5">
-      <button onclick="addToCart('2.5 Litres Liquid Soap',2000,'q5')">Add to Cart</button>
+      <button onclick="addToCart('2.5 Litres Liquid Soap',3500,'q5')">Add to Cart</button>
     </div>
 
     <!-- 5 Litres -->
     <div class="card">
       <img src="https://dummyimage.com/300x200/ff7f50/ffffff&text=5L" alt="5 Litres Soap">
       <h3>5 Litres Liquid Soap</h3>
-      <p>₦4000 per piece</p>
+      <p>₦7000 per piece</p>
       <input type="number" min="1" max="500" value="1" class="quantity-input" id="q6">
-      <button onclick="addToCart('5 Litres Liquid Soap',4000,'q6')">Add to Cart</button>
+      <button onclick="addToCart('5 Litres Liquid Soap',7000,'q6')">Add to Cart</button>
     </div>
 
     <!-- 10 Litres -->
     <div class="card">
       <img src="https://dummyimage.com/300x200/ff7f50/ffffff&text=10L" alt="10 Litres Soap">
       <h3>10 Litres Liquid Soap</h3>
-      <p>₦7000 per piece</p>
+      <p>₦13000 per piece</p>
       <input type="number" min="1" max="500" value="1" class="quantity-input" id="q7">
-      <button onclick="addToCart('10 Litres Liquid Soap',7000,'q7')">Add to Cart</button>
+      <button onclick="addToCart('10 Litres Liquid Soap',13000,'q7')">Add to Cart</button>
     </div>
 
     <!-- 25 Litres -->
     <div class="card">
       <img src="https://dummyimage.com/300x200/ff7f50/ffffff&text=25L" alt="25 Litres Soap">
       <h3>25 Litres Liquid Soap</h3>
-      <p>₦15000 per piece</p>
+      <p>₦26000 per piece</p>
       <input type="number" min="1" max="1000" value="1" class="quantity-input" id="q8">
-      <button onclick="addToCart('25 Litres Liquid Soap',15000,'q8')">Add to Cart</button>
+      <button onclick="addToCart('25 Litres Liquid Soap',26000,'q8')">Add to Cart</button>
     </div>
 
-  </div>
-</section>
-
-<section>
-  <h2>Souvenir Soaps</h2>
-  <div class="products">
-
-    <div class="card">
-      <img src="https://dummyimage.com/300x200/ff7f50/ffffff&text=Souvenir+Soap" alt="Souvenir Soap">
-      <h3>Mini Souvenir Soap</h3>
-      <p>₦100 per piece</p>
-      <input type="nuber pieces" min="1" max="500" value="1" class="quantity-input" id="s0">
-      <button onclick="addToCart('Mini Souvenir Soap',100,'s0')">Add to Cart</button>
-    </div>
-
-    <div class="card">
-      <img src="https://dummyimage.com/300x200/ff7f50/ffffff&text=Gift+Souvenir" alt="Gift Souvenir">
-      <h3>Gift Set Souvenir Soap 3x50ml</h3>
-      <p>₦500 per piece</p>
-      <input type="number" min="1" max="500" value="1" class="quantity-input" id="s1">
-      <button onclick="addToCart('Gift Set Souvenir Soap 3x50ml',500,'s1')">Add to Cart</button>
-    </div>
 
   </div>
 </section>
@@ -221,6 +199,120 @@ function addToCart(name, price, quantityId){
 
   localStorage.setItem("cart", JSON.stringify(cart));
   alert(name + " x" + qty + " added to cart!");
+}
+</script>
+
+
+
+<section>
+  <h2>Bulk Orders (Minimum 50pcs)</h2>
+
+  <div class="products">
+
+    <!-- 100ml -->
+    <div class="card">
+      <img src="https://dummyimage.com/300x200/ff7f50/ffffff&text=100ml+Bulk">
+      <h3>100ml Liquid Soap</h3>
+      <p>₦18,500 per 50pcs</p>
+      <div class="price-display" id="price0">Total: ₦18,500</div>
+      <input type="number" min="50" value="50" class="quantity-input"
+        id="qty0"
+        oninput="updatePrice(18500,50,'qty0','price0')">
+      <button onclick="addBulkToCart('100ml Liquid Soap',18500,50,'qty0')">
+        Add to Cart
+      </button>
+    </div>
+
+    <!-- 250ml -->
+    <div class="card">
+      <img src="https://dummyimage.com/300x200/ff7f50/ffffff&text=250ml+Bulk">
+      <h3>250ml Liquid Soap</h3>
+      <p>₦28,000 per 50pcs</p>
+      <div class="price-display" id="price1">Total: ₦28,000</div>
+      <input type="number" min="50" value="50" class="quantity-input"
+        id="qty1"
+        oninput="updatePrice(28000,50,'qty1','price1')">
+      <button onclick="addBulkToCart('250ml Liquid Soap',28000,50,'qty1')">
+        Add to Cart
+      </button>
+    </div>
+
+    <!-- 300ml -->
+    <div class="card">
+      <img src="https://dummyimage.com/300x200/ff7f50/ffffff&text=300ml+Bulk">
+      <h3>300ml Liquid Soap</h3>
+      <p>₦35,000 per 50pcs</p>
+      <div class="price-display" id="price2">Total: ₦35,000</div>
+      <input type="number" min="50" value="50" class="quantity-input"
+        id="qty2"
+        oninput="updatePrice(35000,50,'qty2','price2')">
+      <button onclick="addBulkToCart('300ml Liquid Soap',35000,50,'qty2')">
+        Add to Cart
+      </button>
+    </div>
+
+    <!-- 500ml -->
+    <div class="card">
+      <img src="https://dummyimage.com/300x200/ff7f50/ffffff&text=500ml+Bulk">
+      <h3>500ml Liquid Soap</h3>
+      <p>₦45,000 per 50pcs</p>
+      <div class="price-display" id="price3">Total: ₦45,000</div>
+      <input type="number" min="50" value="50" class="quantity-input"
+        id="qty3"
+        oninput="updatePrice(45000,50,'qty3','price3')">
+      <button onclick="addBulkToCart('500ml Liquid Soap',45000,50,'qty3')">
+        Add to Cart
+      </button>
+    </div>
+
+    <!-- 1 Litre -->
+    <div class="card">
+      <img src="https://dummyimage.com/300x200/ff7f50/ffffff&text=1L+Bulk">
+      <h3>1 Litre Liquid Soap</h3>
+      <p>₦80,000 per 50pcs</p>
+      <div class="price-display" id="price4">Total: ₦80,000</div>
+      <input type="number" min="50" value="50" class="quantity-input"
+        id="qty4"
+        oninput="updatePrice(80000,50,'qty4','price4')">
+      <button onclick="addBulkToCart('1 Litre Liquid Soap',80000,50,'qty4')">
+        Add to Cart
+      </button>
+    </div>
+
+  </div>
+</section>
+
+<!-- ================= SCRIPT ================= -->
+
+<script>
+function updatePrice(priceFor50, baseQty, qtyId, priceId){
+  let qty = parseInt(document.getElementById(qtyId).value);
+  if(qty < baseQty) qty = baseQty;
+
+  let pricePerPiece = priceFor50 / baseQty;
+  let total = Math.round(qty * pricePerPiece);
+
+  document.getElementById(priceId).textContent =
+    "Total: ₦" + total.toLocaleString();
+}
+
+function addBulkToCart(name, priceFor50, baseQty, qtyId){
+  let qty = parseInt(document.getElementById(qtyId).value);
+  if(qty < baseQty) qty = baseQty;
+
+  let pricePerPiece = priceFor50 / baseQty;
+  let total = Math.round(qty * pricePerPiece);
+
+  let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+  cart.push({
+    name: name + " (" + qty + " pcs)",
+    price: total,
+    quantity: 1
+  });
+
+  localStorage.setItem("cart", JSON.stringify(cart));
+  alert(name + " (" + qty + " pcs) added to cart!");
 }
 </script>
 
