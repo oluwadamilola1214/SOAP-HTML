@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact - Apinkeade Sparkles</title>
+
+<style>
+body{
+  margin:0;
+  font-family:Segoe UI,sans-serif;
+  background:linear-gradient(to right, #fefcea, #f1da36, #fbb034);
+  color:#333;
+}
+nav{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:15px 30px;
+  background:#ff7f50;
+  color:white;
+  box-shadow:0 4px 10px rgba(0,0,0,0.2);
+}
+nav a{
+  text-decoration:none;
+  margin:0 10px;
+  color:white;
+  font-weight:600;
+}
+.hero{
+  padding:80px 20px;
+  text-align:center;
+  color:white;
+}
+.hero h1{font-size:2.5rem;margin-bottom:10px;}
+.hero p{font-size:1.2rem;}
+section{
+  padding:40px 20px;
+  max-width:800px;
+  margin:auto;
+  text-align:center;
+}
+input, textarea{
+  width:80%;
+  max-width:400px;
+  padding:12px;
+  margin:8px 0;
+  border-radius:15px;
+  border:1px solid #ccc;
+  font-size:1rem;
+}
+button{
+  padding:12px 25px;
+  border:none;
+  border-radius:25px;
+  background:#ff7f50;
+  color:white;
+  font-weight:bold;
+  cursor:pointer;
+  margin-top:10px;
+}
+.contact-info{
+  margin-top:40px;
+  text-align:left;
+  max-width:400px;
+  margin-left:auto;
+  margin-right:auto;
+  line-height:1.8;
+}
+.contact-info a{color:#ff7f50;text-decoration:none;}
+.social-links{
+  margin-top:20px;
+}
+.social-links a{
+  margin:0 10px;
+  text-decoration:none;
+  color:#ff7f50;
+  font-weight:bold;
+}
+footer{
+  background:#ff7f50;
+  color:white;
+  padding:40px 20px;
+  text-align:center;
+  margin-top:40px;
+}
+.success-msg{
+  color:green;
+  font-weight:bold;
+  margin-top:10px;
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <strong>Apinkeade Sparkles</strong>
+  <div>
+    <a href="home.html">Home</a>
+    <a href="products.html">Products</a>
+    <a href="cart.html">Cart</a>
+    <a href="contact.html">Contact</a>
+  </div>
+</nav>
+
+<div class="hero">
+  <h1>Contact Us</h1>
+  <p>We’re happy to hear from you! Send us a message below.</p>
+</div>
+
+<section>
+  <h2>Send a Message</h2>
+  <form id="contactForm">
+    <input type="text" id="name" placeholder="Your Name" required><br>
+    <input type="email" id="email" placeholder="Your Email" required><br>
+    <input type="text" id="phone" placeholder="Your Phone (optional)"><br>
+    <textarea id="message" placeholder="Your Message" rows="5" required></textarea><br>
+    <button type="submit">Submit</button>
+    <div class="success-msg" id="successMsg"></div>
+  </form>
+
+  <div class="contact-info">
+    <h3>Contact Information</h3>
+    <p>📞 Phone: <a href="tel:07033416441">07033416441</a></p>
+    <p>✉️ Email: <a href="mailto:apinkeadesparkles@gmail.com">apinkeadesparkles@gmail.com</a></p>
+    <p>🏠 Address: Abeokuta, Nigeria</p>
+  </div>
+
+  <div class="social-links">
+    <h3>Follow Us</h3>
+    <a href="https://www.facebook.com/YourFacebookPage" target="_blank">Facebook</a> |
+    <a href="https://www.instagram.com/YourInstagramPage" target="_blank">Instagram</a> |
+    <a href="https://www.linkedin.com/in/YourLinkedInProfile" target="_blank">LinkedIn</a>
+  </div>
+</section>
+
+<footer>
+  &copy; 2026 Apinkeade Sparkles. All rights reserved.
+</footer>
+
+<!-- EmailJS SDK -->
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+<script>
+
+  // Initialize EmailJS with your public key
+  emailjs.init('-uyCSiHyU5XOhEaNW');
+
+  const form = document.getElementById('contactForm');
+  const successMsg = document.getElementById('successMsg');
+
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    const templateParams = {
+      from_name: document.getElementById('name').value,
+      from_email: document.getElementById('email').value,
+      from_phone: document.getElementById('phone').value,
+      message: document.getElementById('message').value
+    };
+
+    emailjs.send('service_sdd5obg', 'template_jbuu2ir', templateParams)
+      .then(function(response) {
+        successMsg.textContent = "Thank you! Your message has been sent.";
+        form.reset();
+        setTimeout(()=> successMsg.textContent = '', 4000);
+      }, function(error) {
+        successMsg.textContent = "Oops! Something went wrong. Please try again.";
+        console.error('EmailJS error:', error);
+      });
+  });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Products - Apinkeade Sparkles</title>
+<style>
+body{
+  margin:0;
+  font-family:Segoe UI,sans-serif;
+  background:#f7f9fc;
+}
+
+nav{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:15px 20px;
+  background:#ff7f50;
+  color:white;
+}
+
+nav a{
+  text-decoration:none;
+  margin:0 10px;
+  color:white;
+  font-weight:600;
+}
+
+section{
+  padding:40px;
+  max-width:1200px;
+  margin:auto;
+}
+
+h2{
+  color:#ff7f50;
+  text-align:center;
+  margin-bottom:20px;
+}
+
+.products{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:20px;
+}
+
+.card{
+  background:white;
+  padding:20px;
+  border-radius:15px;
+  box-shadow:0 4px 10px rgba(0,0,0,0.1);
+  text-align:center;
+}
+
+.card img{
+  width:100%;
+  height:100px;
+  object-fit:cover;
+  border-radius:10px;
+}
+
+button{
+  background:#ff7f50;
+  color:white;
+  border:none;
+  padding:10px 20px;
+  border-radius:20px;
+  cursor:pointer;
+  margin-top:10px;
+}
+
+.quantity-input{
+  width:60px;
+  padding:5px;
+  border-radius:8px;
+  border:1px solid #ccc;
+  text-align:center;
+  margin-top:10px;
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+  <strong>Apinkeade Sparkles</strong>
+  <div>
+    <a href="home.html">Home</a>
+    <a href="products.html">Products</a>
+    <a href="cart.html">Cart</a>
+    <a href="contact.html">Contact</a>
+  </div>
+</nav>
+
+<section>
+  <h2>Our Liquid Soaps</h2>
+  <div class="products">
+
+    <!-- 100ml -->
+    <div class="card">
+      <img src="https://dummyimage.com/300x200/ff7f50/ffffff&text=100ml" alt="100ml Soap">
+      <h3>100ml Liquid Soap</h3>
+      <p>₦150 per piece</p>
+      <input type="number" min="1" max="500" value="1" class="quantity-input" id="q0">
+      <button onclick="addToCart('100ml Liquid Soap',150,'q0')">Add to Cart</button>
+    </div>
+
+    <!-- 200ml -->
+    <div class="card">
+      <img src="https://dummyimage.com/300x200/ff7f50/ffffff&text=200ml" alt="200ml Soap">
+      <h3>200ml Liquid Soap</h3>
+      <p>₦250 per piece</p>
+      <input type="number" min="1" max="500" value="1" class="quantity-input" id="q1">
+      <button onclick="addToCart('200ml Liquid Soap',250,'q1')">Add to Cart</button>
+    </div>
+
+    <!-- 350ml -->
+    <div class="card">
+      <img src="https://dummyimage.com/300x200/ff7f50/ffffff&text=350ml" alt="350ml Soap">
+      <h3>350ml Liquid Soap</h3>
+      <p>₦350 per piece</p>
+      <input type="number" min="1" max="500" value="1" class="quantity-input" id="q2">
+      <button onclick="addToCart('350ml Liquid Soap',350,'q2')">Add to Cart</button>
+    </div>
+
+    <!-- 500ml -->
+    <div class="card">
+      <img src="https://dummyimage.com/300x200/ff7f50/ffffff&text=500ml" alt="500ml Soap">
+      <h3>500ml Liquid Soap</h3>
+      <p>₦500 per piece</p>
+      <input type="number" min="1" max="500" value="1" class="quantity-input" id="q3">
+      <button onclick="addToCart('500ml Liquid Soap',500,'q3')">Add to Cart</button>
+    </div>
+
+    <!-- 1 Litre -->
+    <div class="card">
+      <img src="https://dummyimage.com/300x200/ff7f50/ffffff&text=1L" alt="1 Litre Soap">
+      <h3>1 Litre Liquid Soap</h3>
+      <p>₦900 per piece</p>
+      <input type="number" min="1" max="500" value="1" class="quantity-input" id="q4">
+      <button onclick="addToCart('1 Litre Liquid Soap',900,'q4')">Add to Cart</button>
+    </div>
+
+    <!-- 2.5 Litres -->
+    <div class="card">
+      <img src="https://dummyimage.com/300x200/ff7f50/ffffff&text=2.5L" alt="2.5 Litres Soap">
+      <h3>2.5 Litres Liquid Soap</h3>
+      <p>₦2000 per piece</p>
+      <input type="number" min="1" max="500" value="1" class="quantity-input" id="q5">
+      <button onclick="addToCart('2.5 Litres Liquid Soap',2000,'q5')">Add to Cart</button>
+    </div>
+
+    <!-- 5 Litres -->
+    <div class="card">
+      <img src="https://dummyimage.com/300x200/ff7f50/ffffff&text=5L" alt="5 Litres Soap">
+      <h3>5 Litres Liquid Soap</h3>
+      <p>₦4000 per piece</p>
+      <input type="number" min="1" max="500" value="1" class="quantity-input" id="q6">
+      <button onclick="addToCart('5 Litres Liquid Soap',4000,'q6')">Add to Cart</button>
+    </div>
+
+    <!-- 10 Litres -->
+    <div class="card">
+      <img src="https://dummyimage.com/300x200/ff7f50/ffffff&text=10L" alt="10 Litres Soap">
+      <h3>10 Litres Liquid Soap</h3>
+      <p>₦7000 per piece</p>
+      <input type="number" min="1" max="500" value="1" class="quantity-input" id="q7">
+      <button onclick="addToCart('10 Litres Liquid Soap',7000,'q7')">Add to Cart</button>
+    </div>
+
+    <!-- 25 Litres -->
+    <div class="card">
+      <img src="https://dummyimage.com/300x200/ff7f50/ffffff&text=25L" alt="25 Litres Soap">
+      <h3>25 Litres Liquid Soap</h3>
+      <p>₦15000 per piece</p>
+      <input type="number" min="1" max="1000" value="1" class="quantity-input" id="q8">
+      <button onclick="addToCart('25 Litres Liquid Soap',15000,'q8')">Add to Cart</button>
+    </div>
+
+  </div>
+</section>
+
+<section>
+  <h2>Souvenir Soaps</h2>
+  <div class="products">
+
+    <div class="card">
+      <img src="https://dummyimage.com/300x200/ff7f50/ffffff&text=Souvenir+Soap" alt="Souvenir Soap">
+      <h3>Mini Souvenir Soap</h3>
+      <p>₦100 per piece</p>
+      <input type="nuber pieces" min="1" max="500" value="1" class="quantity-input" id="s0">
+      <button onclick="addToCart('Mini Souvenir Soap',100,'s0')">Add to Cart</button>
+    </div>
+
+    <div class="card">
+      <img src="https://dummyimage.com/300x200/ff7f50/ffffff&text=Gift+Souvenir" alt="Gift Souvenir">
+      <h3>Gift Set Souvenir Soap 3x50ml</h3>
+      <p>₦500 per piece</p>
+      <input type="number" min="1" max="500" value="1" class="quantity-input" id="s1">
+      <button onclick="addToCart('Gift Set Souvenir Soap 3x50ml',500,'s1')">Add to Cart</button>
+    </div>
+
+  </div>
+</section>
+
+<script>
+function addToCart(name, price, quantityId){
+  let qty = parseInt(document.getElementById(quantityId).value);
+  if(qty < 1) qty = 1;
+
+  let cart = JSON.parse(localStorage.getItem("cart")) || [];
+  
+  // If item already exists, add to quantity
+  let existing = cart.find(item => item.name === name);
+  if(existing){
+    existing.quantity += qty;
+  } else {
+    cart.push({name, price, quantity: qty});
+  }
+
+  localStorage.setItem("cart", JSON.stringify(cart));
+  alert(name + " x" + qty + " added to cart!");
+}
+</script>
+
+</body>
+</html>

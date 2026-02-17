@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Home - Apinkeade Sparkles</title>
+<style>
+body{
+  margin:0;
+  font-family:Segoe UI,sans-serif;
+  background:linear-gradient(to right, #fefcea, #f1da36, #fbb034);
+  color:#333;
+  overflow-x:hidden;
+}
+
+nav{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:15px 30px;
+  background:#ff7f50;
+  color:white;
+  box-shadow:0 4px 10px rgba(0,0,0,0.2);
+}
+
+nav a{
+  text-decoration:none;
+  margin:0 10px;
+  color:white;
+  font-weight:600;
+  font-size:16px;
+}
+
+.hero{
+  position:relative;
+  background:linear-gradient(135deg,#0bbcd6,#1b6ef3);
+  color:white;
+  padding:100px 20px;
+  text-align:center;
+  clip-path: polygon(0 0, 100% 0, 100% 85%, 0% 100%);
+  overflow:hidden;
+}
+
+.hero h1{
+  font-size:3rem;
+  margin-bottom:20px;
+  text-shadow: 2px 2px 8px rgba(0,0,0,0.3);
+}
+
+.hero p{
+  font-size:1.3rem;
+  margin-bottom:30px;
+}
+
+.hero button{
+  background:#ff7f50;
+  color:white;
+  border:none;
+  padding:15px 30px;
+  border-radius:30px;
+  cursor:pointer;
+  font-size:16px;
+  font-weight:bold;
+  margin:5px;
+  transition: transform 0.3s;
+}
+
+.hero button:hover{
+  transform:scale(1.1);
+}
+
+/* Floating soap drops + bubbles */
+.floating-soap{
+  position:absolute;
+  width:30px;
+  height:30px;
+  background:linear-gradient(to bottom, #a1e5ff, #1b6ef3);
+  border-radius:50% 50% 50% 50% / 60% 60% 40% 40%;
+  opacity:0.8;
+  animation: floatSoap 10s linear infinite;
+}
+
+@keyframes floatSoap{
+  0% { transform: translateY(0) rotate(0deg) scale(0.8); opacity:0.6; }
+  50% { transform: translateY(-200px) rotate(180deg) scale(1); opacity:0.9; }
+  100% { transform: translateY(0) rotate(360deg) scale(0.8); opacity:0.6; }
+}
+
+section{
+  padding:60px 20px;
+  max-width:1000px;
+  margin:auto;
+  text-align:center;
+  opacity:0;
+  transform: translateY(50px);
+  transition:all 1s ease;
+}
+
+section.visible{
+  opacity:1;
+  transform:translateY(0);
+}
+
+h2{
+  color:#ff7f50;
+  margin-bottom:30px;
+}
+
+.features{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:30px;
+  margin-top:40px;
+}
+
+.feature-card{
+  background:white;
+  padding:30px;
+  border-radius:20px;
+  box-shadow:0 6px 15px rgba(0,0,0,0.1);
+  transition:transform 0.3s;
+}
+
+.feature-card:hover{
+  transform:translateY(-10px);
+}
+
+.feature-card h3{
+  color:#1b6ef3;
+  margin-bottom:10px;
+}
+
+.feature-card p{
+  color:#555;
+}
+
+/* Testimonials slider */
+.testimonials{
+  margin-top:50px;
+  position:relative;
+  overflow:hidden;
+  height:140px;
+}
+
+.testimonial{
+  display:none;
+  background:white;
+  padding:20px 30px;
+  border-radius:20px;
+  box-shadow:0 6px 15px rgba(0,0,0,0.1);
+  position:absolute;
+  width:100%;
+}
+
+.testimonial.active{
+  display:block;
+  animation:fadeIn 1s ease;
+}
+
+@keyframes fadeIn{
+  from{opacity:0;}
+  to{opacity:1;}
+}
+
+/* Footer */
+footer{
+  background:#ff7f50;
+  color:white;
+  padding:40px 20px;
+  text-align:center;
+  margin-top:40px;
+}
+
+footer h3{
+  margin-bottom:15px;
+}
+
+footer a{
+  color:white;
+  text-decoration:none;
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <strong>Apinkeade Sparkles</strong>
+  <div>
+    <a href="home.html">Home</a>
+    <a href="products.html">Products</a>
+    <a href="cart.html">Cart</a>
+    <a href="contact.html">Contact</a>
+  </div>
+</nav>
+
+<div class="hero">
+  <h1>Welcome to Apinkeade Sparkles</h1>
+  <p>Premium Multipurpose Liquid Soap – Clean, Fresh & Trusted</p>
+  <button onclick="window.location.href='products.html'">Shop Products</button>
+  <button onclick="window.location.href='contact.html'">Contact Us</button>
+
+  <!-- Floating soap drops -->
+  <div class="floating-soap" style="left:10%; animation-duration:12s;"></div>
+  <div class="floating-soap" style="left:25%; width:40px; height:40px; animation-duration:15s;"></div>
+  <div class="floating-soap" style="left:40%; width:35px; height:35px; animation-duration:10s;"></div>
+  <div class="floating-soap" style="left:55%; width:45px; height:45px; animation-duration:14s;"></div>
+  <div class="floating-soap" style="left:70%; width:30px; height:30px; animation-duration:13s;"></div>
+  <div class="floating-soap" style="left:85%; width:50px; height:50px; animation-duration:16s;"></div>
+</div>
+
+<section class="fade-section">
+  <h2>Why Customers Love Us</h2>
+  <div class="features">
+    <div class="feature-card">
+      <h3>Powerful Cleaning</h3>
+      <p>Removes tough stains and germs from dishes, floors, toilets, kitchens, and more.</p>
+    </div>
+    <div class="feature-card">
+      <h3>Gentle & Safe</h3>
+      <p>Our soaps are gentle on hands, safe for your family, and eco-friendly.</p>
+    </div>
+    <div class="feature-card">
+      <h3>Affordable & Premium</h3>
+      <p>High-quality soap at prices that make daily cleaning easy and accessible.</p>
+    </div>
+    <div class="feature-card">
+      <h3>Variety of Sizes</h3>
+      <p>From 100ml to 25 liters – perfect for home, business, and souvenirs.</p>
+    </div>
+  </div>
+</section>
+
+<section class="fade-section">
+  <h2>Best Sellers</h2>
+  <div class="features">
+    <div class="feature-card">
+      <h3>100ml Liquid Soap</h3>
+      <p>Perfect for souvenirs and small daily use.</p>
+    </div>
+    <div class="feature-card">
+      <h3>500ml Liquid Soap</h3>
+      <p>Popular for home use – balanced price and volume.</p>
+    </div>
+    <div class="feature-card">
+      <h3>1 Litre Liquid Soap</h3>
+      <p>Great for households and offices – long-lasting supply.</p>
+    </div>
+    <div class="feature-card">
+      <h3>Gift Souvenir Sets</h3>
+      <p>Mini soaps perfect for gifts, events, and promotions.</p>
+    </div>
+  </div>
+</section>
+
+<section class="fade-section">
+  <h2>What Our Customers Say</h2>
+
+
+   
+
+  <div class="testimonials" id="testimonial-container"></div>
+</section>
+
+<!-- Footer -->
+<footer>
+  <div style="max-width:1000px; margin:auto; display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:20px;">
+    
+    <div>
+      <h3>Contact Us</h3>
+      <p>📞 07033416441</p>
+      <p>✉️ <a href="mailto:apinkeadesparkles@gmail.com">apinkeadesparkles@gmail.com</a></p>
+      <p>🏠 Abeokuta, Nigeria</p>
+    </div>
+    <div>
+      <h3>Quick Links</h3>
+      <p><a href="home.html">Home</a></p>
+      <p><a href="products.html">Products</a></p>
+      <p><a href="cart.html">Cart</a></p>
+      <p><a href="contact.html">Contact</a></p>
+    </div>
+    <div>
+  <h3>Follow Us</h3>
+  <p>
+    <a href="https://www.facebook.com/YourFacebookPage" target="_blank" rel="noopener noreferrer">Facebook</a> | 
+    <a href="https://www.linkedin.com/in/YourLinkedInProfile" target="_blank" rel="noopener noreferrer">LinkedIn</a> | 
+    <a href="https://www.instagram.com/YourInstagramPage" target="_blank" rel="noopener noreferrer">Instagram</a>
+  </p>
+  <p style="font-size:12px; margin-top:20px;">&copy; 2026 Apinkeade Sparkles. All rights reserved.</p>
+</div>
+
+  </div>
+</footer>
+
+<script>
+// Scroll fade-in
+const sections = document.querySelectorAll('.fade-section');
+window.addEventListener('scroll', () => {
+  sections.forEach(section => {
+    const top = section.getBoundingClientRect().top;
+    const windowHeight = window.innerHeight;
+    if(top < windowHeight - 100){
+      section.classList.add('visible');
+    }
+  });
+});
+
+// 200 customer names
+const customerNames = [
+  "Mercy","Bukola","Shola","Mr Ade","Mr Funmi","Mrs Ojo","Tunde","Aisha","Chuka","Funke",
+  "David","Ngozi","Emeka","Yetunde","Ifeanyi","Bola","Olamide","Sade","Femi","Uche",
+  "John","Jane","Paul","Peter","Mary","Grace","Mike","Linda","Samuel","Ruth",
+  "Chinwe","Bamidele","Amaka","Kingsley","Kemi","Segun","Blessing","Tolulope","Daniel","Faith",
+  "Olusegun","Adesua","Ayo","Chioma","Tosin","Emmanuel","Victoria","Patrick","Esther","Joseph",
+  "Rebecca","Michael","Ada","Abiola","Helen","Gabriel","Patience","Victor","Chidinma","James",
+  "Mercy","Bukola","Shola","Mr Ade","Mr Funmi","Mrs Ojo","Tunde","Aisha","Chuka","Funke",
+    "David","Ngozi","Emeka","Yetunde","Ifeanyi","Bola","Olamide","Sade","Femi","Uche",
+    "John","Jane","Paul","Peter","Mary","Grace","Mike","Linda","Samuel","Ruth",
+    "Chinwe","Bamidele","Amaka","Kingsley","Kemi","Segun","Blessing","Tolulope","Daniel","Faith",
+    "Olusegun","Adesua","Ayo","Chioma","Tosin","Emmanuel","Victoria","Patrick","Esther","Joseph",
+    "Rebecca","Michael","Ada","Abiola","Helen","Gabriel","Patience","Victor","Chidinma","James",
+    "Rose","Ejiro","Damilola","Sarah","Davidson","Precious","Ezekiel","Joy","Ijeoma","Richard",
+    "Olivia","Stanley","Chidera","Hannah","Chukwudi","Ogechi","Ibrahim","Rita","Kenneth","Uchenna",
+    "Florence","Abigail","Emmanuel","Blessing","Adaobi","Chuka","Elizabeth","Ike","Maryam","Obinna",
+    "Favour","Emeka","Rachael","Victor","Uzoamaka","Samuel","Chinyere","Henry","Simi","Chinonso",
+    "Temi","Chukwuemeka","Esther","Oluwaseun","Suleiman","Amara","Chinaza","Tayo","Ngozi","Olamide"
+];
+
+
+// 40 unique testimonial texts
+const testimonialTexts = [
+  "Apinkeade Sparkles made my event souvenirs extra special – everyone loved them!",
+  "Even a single bottle of Apinkeade Sparkles is enough to feel luxurious.",
+  "Thank you, Apinkeade Sparkles, for creating such a fragrant and long-lasting soap!",
+  "My guests couldn’t stop talking about the Apinkeade Sparkles souvenirs – highly recommend!",
+  "Single bottle purchase was perfect – smells amazing and lasts long.",
+  "Apinkeade Sparkles made my gift bags unforgettable – thank you!",
+  "I always recommend Apinkeade Sparkles to friends and family – they love it!",
+  "The souvenir sets of Apinkeade Sparkles were a big hit at my wedding.",
+  "Even a single bottle feels premium – I’m impressed!",
+  "Thank you for a soap that makes every handwash feel special and refreshing!",
+  "Apinkeade Sparkles added elegance to my party favors – everyone noticed!",
+  "I highly recommend Apinkeade Sparkles for gifts and souvenirs – perfect quality.",
+  "Single bottles of Apinkeade Sparkles are perfect for personal use – smells divine!",
+  "My guests were thrilled with Apinkeade Sparkles – thank you for making it so special!",
+  "Apinkeade Sparkles is my favorite soap now – I recommend it to everyone!",
+  "Thank you for creating a soap that smells heavenly and lasts long!",
+  "The Apinkeade Sparkles souvenir set was appreciated by everyone at my corporate event.",
+  "I recommend Apinkeade Sparkles to anyone who wants a luxurious yet affordable soap.",
+  "Single bottle of Apinkeade Sparkles exceeded my expectations – smells amazing!",
+  "Apinkeade Sparkles made my wedding favors unique and memorable!",
+  "Thank you for a soap that feels premium but is perfect for everyday use!",
+  "I always recommend Apinkeade Sparkles – it’s soft, fragrant, and long-lasting!",
+  "My guests loved the Apinkeade Sparkles souvenirs – highly recommend for events!",
+  "Even buying one bottle feels like a treat – Apinkeade Sparkles is wonderful!",
+  "Apinkeade Sparkles made my birthday party souvenirs unforgettable!",
+  "Thank you for a soap that my friends actually ask to buy themselves!",
+  "The fragrance of Apinkeade Sparkles is refreshing and long-lasting – highly recommend!",
+  "Apinkeade Sparkles makes every handwash feel luxurious – I recommend it to all!",
+  "I bought a single bottle as a gift – everyone loved it!",
+  "The Apinkeade Sparkles souvenir set made my event feel elegant and special!",
+  "Thank you for a soap that’s practical, beautiful, and fragrant!",
+  "Single bottle of Apinkeade Sparkles is perfect for everyday handwashing!",
+  "Apinkeade Sparkles souvenirs were a hit at my baby shower – I highly recommend it!",
+  "I always recommend Apinkeade Sparkles – it’s the perfect gift for any occasion!",
+  "Even one bottle of Apinkeade Sparkles feels premium – very satisfied!",
+  "Thank you for making a soap that is both elegant and effective!",
+  "Apinkeade Sparkles added a special touch to my wedding souvenirs – everyone loved it!",
+  "My friends keep asking me where to get Apinkeade Sparkles – I recommend it to all!",
+  "Single bottles are perfect for personal use – Apinkeade Sparkles smells divine!"
+];
+
+// Build 200 testimonial objects
+const testimonialsData = [];
+for(let i=0;i<200;i++){
+  testimonialsData.push({
+    text: testimonialTexts[i % testimonialTexts.length],
+    author: customerNames[i % customerNames.length]
+  });
+}
+
+const container = document.getElementById('testimonial-container');
+
+// Create testimonial divs
+testimonialsData.forEach((t,index)=>{
+  const div = document.createElement('div');
+  div.classList.add('testimonial');
+  if(index===0) div.classList.add('active');
+  div.innerHTML = `<p>${t.text}</p><strong>${t.author}</strong>`;
+  container.appendChild(div);
+});
+
+// Rotate testimonials
+let current = 0;
+const testimonialElements = document.querySelectorAll('.testimonial');
+setInterval(()=>{
+  testimonialElements[current].classList.remove('active');
+  current = (current+1) % testimonialElements.length;
+  testimonialElements[current].classList.add('active');
+},6000);
+</script>
+
+<script>
+// ===== REAL CUSTOMER FEEDBACK (LOCAL STORAGE) =====
+const feedbackForm = document.getElementById('feedbackForm');
+let realFeedback = JSON.parse(localStorage.getItem('realFeedback')) || [];
+   
+
+
+// FORM SUBMIT
+document.getElementById('feedbackForm').addEventListener('submit', e => {
+  e.preventDefault();
+  
+  const name = custName.value.trim();
+  const msg = custMessage.value.trim();
+  if (!name || !msg) return;
+
+  const fb = { author: name, text: msg };
+
+  // Save in localStorage
+  realFeedback.unshift(fb);
+  localStorage.setItem('realFeedback', JSON.stringify(realFeedback));
+
+  // Add testimonial immediately
+  const div = document.createElement('div');
+  div.className = 'testimonial';
+  div.innerHTML = `<p>${fb.text}</p><strong>${fb.author}</strong>`;
+  
+  // Highlight temporarily
+  div.style.border = "2px solid #ff7f50";
+  div.style.boxShadow = "0 0 15px #ff7f50";
+  container.prepend(div);
+
+  // Remove highlight after 2 seconds
+  setTimeout(() => {
+    div.style.border = "";
+    div.style.boxShadow = "";
+  }, 2000);
+
+  // Clear form
+  custName.value = "";
+  custMessage.value = "";
+});
+
+// Load saved real feedback first
+realFeedback.forEach(t => addRealTestimonial(t));
+
+feedbackForm.addEventListener('submit', e => {
+  e.preventDefault();
+
+  const name = document.getElementById('custName').value.trim();
+  const message = document.getElementById('custMessage').value.trim();
+
+  if(!name || !message) return;
+
+  const feedback = { author: name, text: message };
+
+  realFeedback.unshift(feedback);
+  localStorage.setItem('realFeedback', JSON.stringify(realFeedback));
+
+  addRealTestimonial(feedback);
+  feedbackForm.reset();
+});
+
+function addRealTestimonial(t){
+  const div = document.createElement('div');
+  div.classList.add('testimonial','active');
+  div.innerHTML = `<p>${t.text}</p><strong>${t.author}</strong>`;
+  container.prepend(div);
+}
+</script>
+
+
+</body>
+</html>
