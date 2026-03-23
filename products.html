@@ -78,6 +78,27 @@ button{
   text-align:center;
   margin-top:10px;
 }
+  #toast {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background: #ff7f50;
+  color: white;
+  padding: 15px 25px;
+  border-radius: 24px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  font-weight: 600;
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+  z-index: 1000;
+}
+
+#toast.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 </style>
 </head>
 
