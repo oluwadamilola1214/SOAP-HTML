@@ -1,550 +1,1311 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Home - Apinkeade Sparkles</title>
+
+<title>Home - Apinkeade Multipurpose Liquid Soap</title>
+
 <style>
+:root{
+  --green:#176b45;
+  --dark:#0f4f32;
+  --mint:#eefaf3;
+  --pink:#d81778;
+  --purple:#5a2296;
+  --gold:#f3b51b;
+  --text:#26352e;
+  --border:#d9eee2;
+  --white:#ffffff;
+  --soft:#f7fff9;
+}
+
+*{
+  box-sizing:border-box;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
 body{
   margin:0;
-  font-family:Segoe UI,sans-serif;
-  background:linear-gradient(to right, #fefcea, #f1da36, #fbb034);
-  color:#333;
+  font-family:"Segoe UI",Arial,sans-serif;
+  background:linear-gradient(#f7fff9,#eef8f2);
+  color:var(--text);
   overflow-x:hidden;
 }
 
+/* ================= NAVIGATION ================= */
+
 nav{
+  position:sticky;
+  top:0;
+  z-index:100;
   display:flex;
   justify-content:space-between;
   align-items:center;
-  padding:15px 30px;
-  background:#ff7f50;
-  color:white;
-  box-shadow:0 4px 10px rgba(0,0,0,0.2);
+  gap:18px;
+  padding:14px 6%;
+  background:var(--green);
+  color:#fff;
+  box-shadow:0 4px 18px rgba(0,0,0,.12);
+}
+
+.logo{
+  font-size:1.12rem;
+  font-weight:900;
+  white-space:nowrap;
+}
+
+.logo span{
+  color:#d9ffe9;
+}
+
+nav div{
+  display:flex;
+  flex-wrap:wrap;
+  gap:5px;
 }
 
 nav a{
+  color:#fff;
   text-decoration:none;
-  margin:0 10px;
-  color:white;
-  font-weight:600;
-  font-size:16px;
+  font-weight:700;
+  padding:8px 12px;
+  border-radius:20px;
+  transition:.25s;
 }
+
+nav a:hover,
+nav a.active{
+  background:rgba(255,255,255,.16);
+}
+
+/* ================= HERO ================= */
 
 .hero{
   position:relative;
-  background:linear-gradient(135deg,#0bbcd6,#1b6ef3);
-  color:white;
-  padding:100px 20px;
-  text-align:center;
-  clip-path: polygon(0 0, 100% 0, 100% 85%, 0% 100%);
   overflow:hidden;
+  text-align:center;
+  padding:70px 18px 65px;
+  background:
+    radial-gradient(circle at 10% 25%,#ffffff 0 5%,transparent 6%),
+    radial-gradient(circle at 88% 70%,#ffffff 0 4%,transparent 5%),
+    linear-gradient(135deg,#f9fffb,#e2f5e9);
+}
+
+.hero::before{
+  content:"";
+  position:absolute;
+  width:280px;
+  height:280px;
+  border-radius:50%;
+  background:rgba(23,107,69,.07);
+  top:-120px;
+  left:-90px;
+}
+
+.hero::after{
+  content:"";
+  position:absolute;
+  width:230px;
+  height:230px;
+  border-radius:50%;
+  background:rgba(216,23,120,.05);
+  right:-90px;
+  bottom:-100px;
+}
+
+.hero-content{
+  position:relative;
+  z-index:2;
+  max-width:850px;
+  margin:auto;
+}
+
+.badge{
+  display:inline-block;
+  background:#fff;
+  border:1px solid var(--border);
+  color:var(--green);
+  font-size:.82rem;
+  font-weight:900;
+  padding:8px 15px;
+  border-radius:30px;
+  box-shadow:0 5px 18px rgba(23,107,69,.08);
 }
 
 .hero h1{
-  font-size:3rem;
-  margin-bottom:20px;
-  text-shadow: 2px 2px 8px rgba(0,0,0,0.3);
+  margin:15px 0 10px;
+  color:var(--green);
+  font-size:clamp(2rem,5vw,3.4rem);
+  line-height:1.1;
+}
+
+.hero h1 span{
+  color:var(--pink);
 }
 
 .hero p{
-  font-size:1.3rem;
-  margin-bottom:30px;
+  max-width:720px;
+  margin:0 auto 25px;
+  color:#5f7569;
+  line-height:1.7;
+  font-size:1.05rem;
 }
 
-.hero button{
-  background:#ff7f50;
-  color:white;
-  border:none;
-  padding:15px 30px;
+.hero-buttons{
+  display:flex;
+  justify-content:center;
+  flex-wrap:wrap;
+  gap:12px;
+}
+
+.hero-btn{
+  display:inline-block;
+  text-decoration:none;
+  padding:13px 23px;
   border-radius:30px;
-  cursor:pointer;
-  font-size:16px;
-  font-weight:bold;
-  margin:5px;
-  transition: transform 0.3s;
+  font-weight:800;
+  transition:.25s;
 }
 
-.hero button:hover{
-  transform:scale(1.1);
+.hero-btn:hover{
+  transform:translateY(-3px);
 }
 
-/* Floating soap drops + bubbles */
-.floating-soap{
+.primary-btn{
+  background:var(--green);
+  color:#fff;
+  box-shadow:0 7px 18px rgba(23,107,69,.18);
+}
+
+.primary-btn:hover{
+  background:var(--dark);
+}
+
+.secondary-btn{
+  background:#fff;
+  color:var(--green);
+  border:1px solid var(--border);
+}
+
+.secondary-btn:hover{
+  border-color:var(--green);
+}
+
+/* Floating bubbles */
+
+.bubble{
   position:absolute;
-  width:30px;
-  height:30px;
-  background:linear-gradient(to bottom, #a1e5ff, #1b6ef3);
-  border-radius:50% 50% 50% 50% / 60% 60% 40% 40%;
-  opacity:0.8;
-  animation: floatSoap 10s linear infinite;
+  border-radius:50%;
+  background:rgba(255,255,255,.7);
+  border:2px solid rgba(23,107,69,.12);
+  animation:floatBubble 7s ease-in-out infinite;
 }
 
-@keyframes floatSoap{
-  0% { transform: translateY(0) rotate(0deg) scale(0.8); opacity:0.6; }
-  50% { transform: translateY(-200px) rotate(180deg) scale(1); opacity:0.9; }
-  100% { transform: translateY(0) rotate(360deg) scale(0.8); opacity:0.6; }
+.bubble.one{
+  width:38px;
+  height:38px;
+  left:7%;
+  bottom:20%;
 }
+
+.bubble.two{
+  width:22px;
+  height:22px;
+  left:18%;
+  top:22%;
+  animation-delay:1s;
+}
+
+.bubble.three{
+  width:55px;
+  height:55px;
+  right:8%;
+  top:25%;
+  animation-delay:2s;
+}
+
+.bubble.four{
+  width:28px;
+  height:28px;
+  right:20%;
+  bottom:15%;
+  animation-delay:3s;
+}
+
+@keyframes floatBubble{
+  0%,100%{
+    transform:translateY(0);
+  }
+
+  50%{
+    transform:translateY(-20px);
+  }
+}
+
+/* ================= TRUST STRIP ================= */
+
+.trust-strip{
+  width:min(1050px,92%);
+  margin:-20px auto 0;
+  position:relative;
+  z-index:5;
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:12px;
+}
+
+.trust-item{
+  background:#fff;
+  border:1px solid var(--border);
+  border-radius:17px;
+  padding:18px 12px;
+  text-align:center;
+  box-shadow:0 8px 24px rgba(23,107,69,.08);
+}
+
+.trust-item strong{
+  display:block;
+  color:var(--green);
+  font-size:.95rem;
+}
+
+.trust-item span{
+  color:#708078;
+  font-size:.78rem;
+}
+
+/* ================= SECTIONS ================= */
 
 section{
-  padding:60px 20px;
-  max-width:1000px;
+  width:min(1180px,92%);
   margin:auto;
+  padding:55px 0;
+}
+
+.section-title{
   text-align:center;
-  opacity:0;
-  transform: translateY(50px);
-  transition:all 1s ease;
-}
-
-section.visible{
-  opacity:1;
-  transform:translateY(0);
-}
-
-h2{
-  color:#ff7f50;
   margin-bottom:30px;
 }
+
+.section-title h2{
+  margin:0 0 8px;
+  color:var(--green);
+  font-size:1.9rem;
+}
+
+.section-title p{
+  margin:0;
+  color:#6c7d74;
+}
+
+/* ================= WHY US ================= */
 
 .features{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-  gap:30px;
-  margin-top:40px;
+  gap:20px;
 }
 
 .feature-card{
-  background:white;
-  padding:30px;
-  border-radius:20px;
-  box-shadow:0 6px 15px rgba(0,0,0,0.1);
-  transition:transform 0.3s;
+  background:#fff;
+  border:1px solid var(--border);
+  border-radius:21px;
+  padding:25px 20px;
+  box-shadow:0 7px 25px rgba(23,107,69,.08);
+  text-align:center;
+  transition:.25s;
 }
 
 .feature-card:hover{
-  transform:translateY(-10px);
+  transform:translateY(-5px);
+  box-shadow:0 13px 30px rgba(23,107,69,.14);
+}
+
+.feature-icon{
+  width:52px;
+  height:52px;
+  margin:0 auto 14px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:50%;
+  background:var(--mint);
+  font-size:1.4rem;
 }
 
 .feature-card h3{
-  color:#1b6ef3;
-  margin-bottom:10px;
+  color:var(--green);
+  margin:8px 0;
 }
 
 .feature-card p{
-  color:#555;
+  color:#66776f;
+  line-height:1.6;
+  margin:0;
+  font-size:.92rem;
 }
 
-/* Testimonials slider */
-.testimonials{
-  margin-top:50px;
-  position:relative;
-  overflow:hidden;
-  height:140px;
+/* ================= PRODUCTS ================= */
+
+.products{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(235px,1fr));
+  gap:22px;
 }
 
-.testimonial{
-  display:none;
-  background:white;
-  padding:20px 30px;
-  border-radius:20px;
-  box-shadow:0 6px 15px rgba(0,0,0,0.1);
-  position:absolute;
-  width:100%;
-}
-
-.testimonial.active{
-  display:block;
-  animation:fadeIn 1s ease;
-}
-
-@keyframes fadeIn{
-  from{opacity:0;}
-  to{opacity:1;}
-}
-
-/* Footer */
-footer{
-  background:#ff7f50;
-  color:white;
-  padding:40px 20px;
+.card{
+  background:#fff;
+  border:1px solid var(--border);
+  border-radius:21px;
+  padding:17px;
+  box-shadow:0 7px 25px rgba(23,107,69,.10);
   text-align:center;
-  margin-top:40px;
+  transition:.25s;
+}
+
+.card:hover{
+  transform:translateY(-5px);
+  box-shadow:0 13px 30px rgba(23,107,69,.16);
+}
+
+.product-image{
+  width:100%;
+  height:165px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:16px;
+  background:var(--mint);
+  font-size:4rem;
+}
+
+.card h3{
+  color:var(--green);
+  margin:15px 0 7px;
+}
+
+.card p{
+  color:#6a7972;
+  font-size:.9rem;
+  line-height:1.5;
+}
+
+.price{
+  font-size:1.2rem;
+  font-weight:900;
+  color:var(--green);
+  margin:10px 0;
+}
+
+.product-link{
+  display:inline-block;
+  text-decoration:none;
+  background:var(--green);
+  color:#fff;
+  padding:10px 18px;
+  border-radius:12px;
+  font-weight:800;
+  margin-top:5px;
+  transition:.25s;
+}
+
+.product-link:hover{
+  background:var(--dark);
+}
+
+.hot{
+  display:inline-block;
+  background:#fff0f7;
+  color:var(--pink);
+  border-radius:15px;
+  padding:4px 9px;
+  font-size:.73rem;
+  font-weight:900;
+}
+
+/* ================= BULK SECTION ================= */
+
+.bulk-section{
+  background:linear-gradient(135deg,#f0faf4,#fff7fc);
+  border:1px solid var(--border);
+  border-radius:25px;
+  padding:38px 25px;
+  text-align:center;
+}
+
+.bulk-section h2{
+  color:var(--green);
+  margin:0 0 10px;
+}
+
+.bulk-section p{
+  max-width:700px;
+  margin:0 auto 20px;
+  color:#65776e;
+  line-height:1.7;
+}
+
+.large-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(170px,1fr));
+  gap:15px;
+  margin-top:25px;
+}
+
+.large-price{
+  background:#fff;
+  border:1px solid var(--border);
+  border-radius:18px;
+  padding:18px 12px;
+  text-align:center;
+  box-shadow:0 6px 20px rgba(23,107,69,.07);
+}
+
+.large-price .size{
+  display:block;
+  color:#61736a;
+  font-weight:700;
+  margin-bottom:6px;
+}
+
+.large-price strong{
+  display:block;
+  color:var(--green);
+  font-size:1.25rem;
+}
+
+.discount{
+  display:inline-block;
+  margin-top:7px;
+  padding:4px 9px;
+  border-radius:15px;
+  background:#fff5d8;
+  color:#956b00;
+  font-size:.72rem;
+  font-weight:800;
+}
+
+/* ================= SPECIAL ORDERS ================= */
+
+.special-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:20px;
+}
+
+.special-card{
+  padding:28px 22px;
+  border-radius:22px;
+  color:#fff;
+  min-height:190px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+}
+
+.special-card h3{
+  margin:0 0 10px;
+  font-size:1.25rem;
+}
+
+.special-card p{
+  line-height:1.6;
+  margin:0 0 17px;
+  font-size:.9rem;
+}
+
+.special-card a{
+  align-self:flex-start;
+  background:#fff;
+  color:var(--green);
+  text-decoration:none;
+  padding:9px 16px;
+  border-radius:20px;
+  font-weight:800;
+}
+
+.special-one{
+  background:linear-gradient(135deg,var(--green),#23905f);
+}
+
+.special-two{
+  background:linear-gradient(135deg,var(--purple),#7b35b9);
+}
+
+.special-three{
+  background:linear-gradient(135deg,var(--pink),#ec4298);
+}
+
+/* ================= FEEDBACK ================= */
+
+.feedback-box{
+  background:#fff;
+  border:1px solid var(--border);
+  border-radius:22px;
+  padding:30px 20px;
+  text-align:center;
+  box-shadow:0 7px 25px rgba(23,107,69,.08);
+}
+
+.feedback-box h3{
+  color:var(--green);
+  margin-top:0;
+}
+
+.feedback-box p{
+  color:#6c7d74;
+  line-height:1.6;
+}
+
+.feedback-btn{
+  display:inline-block;
+  background:var(--green);
+  color:#fff;
+  text-decoration:none;
+  padding:12px 22px;
+  border-radius:25px;
+  font-weight:800;
+}
+
+/* ================= FOOTER ================= */
+
+footer{
+  background:var(--dark);
+  color:#fff;
+  padding:45px 20px 25px;
+  margin-top:20px;
+}
+
+.footer-grid{
+  width:min(1100px,92%);
+  margin:auto;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(210px,1fr));
+  gap:30px;
 }
 
 footer h3{
-  margin-bottom:15px;
+  margin-top:0;
+  margin-bottom:14px;
+}
+
+footer p{
+  color:#d8eee2;
+  line-height:1.6;
+  font-size:.9rem;
 }
 
 footer a{
-  color:white;
+  color:#fff;
   text-decoration:none;
 }
+
+footer a:hover{
+  color:#f5ca52;
+}
+
+.footer-bottom{
+  width:min(1100px,92%);
+  margin:30px auto 0;
+  padding-top:20px;
+  border-top:1px solid rgba(255,255,255,.15);
+  text-align:center;
+  color:#c8dfd2;
+  font-size:.8rem;
+}
+
+/* ================= WHATSAPP ================= */
+
+.whatsapp{
+  position:fixed;
+  right:20px;
+  bottom:20px;
+  z-index:999;
+  width:54px;
+  height:54px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:50%;
+  background:#25d366;
+  color:#fff;
+  text-decoration:none;
+  font-size:1.5rem;
+  box-shadow:0 7px 20px rgba(0,0,0,.2);
+  transition:.25s;
+}
+
+.whatsapp:hover{
+  transform:scale(1.08);
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media(max-width:800px){
+
+  nav{
+    flex-direction:column;
+    padding:12px 4%;
+  }
+
+  nav div{
+    justify-content:center;
+  }
+
+  .trust-strip{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+}
+
+@media(max-width:600px){
+
+  nav a{
+    font-size:.82rem;
+    padding:7px 9px;
+  }
+
+  .hero{
+    padding:48px 15px 45px;
+  }
+
+  .hero h1{
+    font-size:2.15rem;
+  }
+
+  .hero p{
+    font-size:.94rem;
+  }
+
+  .hero-buttons{
+    flex-direction:column;
+    align-items:center;
+  }
+
+  .hero-btn{
+    width:90%;
+    max-width:300px;
+  }
+
+  section{
+    width:94%;
+    padding:38px 0;
+  }
+
+  .trust-strip{
+    width:94%;
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .trust-item{
+    padding:14px 8px;
+  }
+
+  .large-grid{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .whatsapp{
+    right:15px;
+    bottom:15px;
+  }
+
+}
 </style>
+
 </head>
+
 <body>
 
+<!-- ================= NAVIGATION ================= -->
+
 <nav>
-  <strong>Apinkeade Sparkles</strong>
+
+  <div class="logo">
+    Apinkeade <span>Multipurpose Liquid Soap</span>
+  </div>
+
   <div>
-    <a href="home.html">Home</a>
+    <a href="home.html" class="active">Home</a>
     <a href="products.html">Products</a>
     <a href="cart.html">Cart</a>
     <a href="contact.html">Contact</a>
   </div>
+
 </nav>
 
+<!-- ================= HERO ================= -->
+
 <div class="hero">
-  <h1>Welcome to Apinkeade Sparkles</h1>
-  <p>Premium Multipurpose Liquid Soap Clean, Fresh & Trusted</p>
-  <button onclick="window.location.href='products.html'">Shop Products</button>
-  <button onclick="window.location.href='contact.html'">Contact Us</button>
 
-  <!-- Floating soap drops -->
-  <div class="floating-soap" style="left:10%; animation-duration:12s;"></div>
-  <div class="floating-soap" style="left:25%; width:40px; height:40px; animation-duration:15s;"></div>
-  <div class="floating-soap" style="left:40%; width:35px; height:35px; animation-duration:10s;"></div>
-  <div class="floating-soap" style="left:55%; width:45px; height:45px; animation-duration:14s;"></div>
-  <div class="floating-soap" style="left:70%; width:30px; height:30px; animation-duration:13s;"></div>
-  <div class="floating-soap" style="left:85%; width:50px; height:50px; animation-duration:16s;"></div>
+  <div class="bubble one"></div>
+  <div class="bubble two"></div>
+  <div class="bubble three"></div>
+  <div class="bubble four"></div>
+
+  <div class="hero-content">
+
+```
+<span class="badge">✨ Clean • Fresh • Reliable</span>
+
+<h1>
+  Clean Better With
+  <span>Apinkeade</span>
+</h1>
+
+<p>
+  Premium multipurpose liquid soap made for everyday cleaning.
+  Perfect for homes, offices, businesses, souvenirs, events and bulk supply.
+</p>
+
+<div class="hero-buttons">
+
+  <a href="products.html" class="hero-btn primary-btn">
+    🛒 Shop Products
+  </a>
+
+  <a
+    href="https://wa.me/2347033416441?text=Hello%20Apinkeade%2C%20I%20want%20to%20place%20an%20order."
+    target="_blank"
+    class="hero-btn secondary-btn">
+    💬 Order on WhatsApp
+  </a>
+
 </div>
-<section class="fade-section">
-  <h2>Why Customers Love Us</h2>
-  <div class="features">
-
-    <div class="feature-card">
-      <h3>Powerful Cleaning</h3>
-      <p>Removes tough stains and germs from dishes, floors, toilets, kitchens and more.</p>
-    </div>
-
-    <div class="feature-card">
-      <h3>Gentle & Safe</h3>
-      <p>Our soaps are gentle on hands, safe for your family and eco friendly.</p>
-    </div>
-
-    <div class="feature-card">
-      <h3>Affordable & Premium</h3>
-      <p>High-quality soap at prices that make daily cleaning easy and accessible.</p>
-    </div>
-
-    <div class="feature-card">
-      <h3>Variety of Sizes</h3>
-      <p>From 100ml to 25 liters...perfect for home, business and souvenirs.</p>
-    </div>
-
-    <!-- NEW CARDS -->
-
-    <div class="feature-card">
-      <h3>Long-Lasting Fragrance</h3>
-      <p>Leaves your home smelling fresh and clean for hours after use.</p>
-    </div>
-
-    <div class="feature-card">
-      <h3>Fast Action Formula</h3>
-      <p>Works instantly to break down grease, dirt and bacteria with minimal effort.</p>
-    </div>
-
-    <div class="feature-card">
-      <h3>Multi-Purpose Use</h3>
-      <p>One product, multiple uses — perfect for dishes, laundry, surfaces and general cleaning.</p>
-    </div>
-
-    <div class="feature-card">
-      <h3>Trusted by Customers</h3>
-      <p>Loved by households and businesses for consistent quality and reliable results.</p>
-    </div>
-
-    <div class="feature-card">
-      <h3>Bulk Supply Available</h3>
-      <p>Ideal for resellers,hotels and businesses with large quantity needs.</p>
-    </div>
-
-    <div class="feature-card">
-      <h3>Beautiful Packaging</h3>
-      <p>Clean, attractive packaging that makes it perfect for display and gifting.</p>
-    </div>
+```
 
   </div>
-</section>
-<section class="fade-section">
-  <h2>Best Sellers</h2>
-  <p class="section-subtitle">Our most loved products by customers 🔥</p>
+
+</div>
+
+<!-- ================= TRUST STRIP ================= -->
+
+<div class="trust-strip">
+
+  <div class="trust-item">
+    <strong>✨ Quality Soap</strong>
+    <span>Made for everyday cleaning</span>
+  </div>
+
+  <div class="trust-item">
+    <strong>💰 Affordable</strong>
+    <span>Great value for your money</span>
+  </div>
+
+  <div class="trust-item">
+    <strong>📦 Bulk Supply</strong>
+    <span>Available in large quantities</span>
+  </div>
+
+  <div class="trust-item">
+    <strong>🎁 Souvenirs</strong>
+    <span>Custom orders available</span>
+  </div>
+
+</div>
+
+<!-- ================= WHY CUSTOMERS CHOOSE US ================= -->
+
+<section>
+
+  <div class="section-title">
+    <h2>Why Choose Apinkeade?</h2>
+    <p>Everything you need for a cleaner, fresher space.</p>
+  </div>
 
   <div class="features">
 
-    <div class="feature-card">
-      <h3>100ml Liquid Soap</h3>
-      <p>Perfect for souvenirs and small daily use.</p>
-      <span class="badge">Hot</span>
-    </div>
-
-    <div class="feature-card">
-      <h3>250ml Liquid Soap</h3>
-      <p>Compact and convenient – ideal for personal use and travel.</p>
-    </div>
-
-    <div class="feature-card">
-      <h3>500ml Liquid Soap</h3>
-      <p>Popular for home use – balanced price and volume.</p>
-      <span class="badge">Best Value</span>
-    </div>
-
-    <div class="feature-card">
-      <h3>1 Litre Liquid Soap</h3>
-      <p>Great for households and offices....longlasting supply.</p>
-    </div>
-
-    <div class="feature-card">
-      <h3>5 Litres Liquid Soap</h3>
-      <p>Perfect for families and small businesses....saves cost.</p>
-    </div>
-
-    <div class="feature-card">
-      <h3>10 Litres Liquid Soap</h3>
-      <p>Ideal for bulk usage in offices, schools, and shops.</p>
-    </div>
-
-    <div class="feature-card">
-      <h3>25 Litres Liquid Soap</h3>
-      <p>Best for resellers and large scale cleaning needs.</p>
-      <span class="badge">Bulk Deal</span>
-    </div>
-
-    <div class="feature-card">
-      <h3>Gift Souvenir Sets</h3>
-      <p>Mini soaps perfect for gifts, events and promotions.</p>
-    </div>
-
-    <div class="feature-card">
-      <h3>Custom Branded Orders</h3>
-      <p>We create personalized labels for events and businesses.</p>
-    </div>
-
-    <div class="feature-card">
-      <h3>Starter Reseller Pack</h3>
-      <p>Start your own soap business with our affordable bundle.</p>
-      <span class="badge">New</span>
-    </div>
-
-  </div>
-</section>
-
-<section class="fade-section">
-  <h2>What Our Customers Say</h2>
-
-
-   
-
-  <div class="testimonials" id="testimonial-container"></div>
-</section>
-
-<!-- Footer -->
-<footer>
-  <div style="max-width:1000px; margin:auto; display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:20px;">
-    
-    <div>
-      <h3>Contact Us</h3>
-      <p>📞 07033416441</p>
-      <p>✉️ <a href="mailto:apinkeadesparkles@gmail.com">apinkeadesparkles@gmail.com</a></p>
-      <p>🏠 Abeokuta, Nigeria</p>
-    </div>
-    <div>
-      <h3>Quick Links</h3>
-      <p><a href="home.html">Home</a></p>
-      <p><a href="products.html">Products</a></p>
-      <p><a href="cart.html">Cart</a></p>
-      <p><a href="contact.html">Contact</a></p>
-    </div>
-    <div>
-  <h3>Follow Us</h3>
+```
+<div class="feature-card">
+  <div class="feature-icon">🧼</div>
+  <h3>Powerful Cleaning</h3>
   <p>
-    <a href="https://www.facebook.com/YourFacebookPage" target="_blank" rel="noopener noreferrer">Facebook</a> | 
-    <a href="https://www.linkedin.com/in/YourLinkedInProfile" target="_blank" rel="noopener noreferrer">LinkedIn</a> | 
-    <a href="https://www.instagram.com/YourInstagramPage" target="_blank" rel="noopener noreferrer">Instagram</a>
+    Helps remove dirt, grease and stains from your everyday cleaning tasks.
   </p>
-  <p style="font-size:12px; margin-top:20px;">&copy; 2026 Apinkeade Sparkles. All rights reserved.</p>
 </div>
 
+<div class="feature-card">
+  <div class="feature-icon">🌸</div>
+  <h3>Fresh Fragrance</h3>
+  <p>
+    Leaves your cleaned surfaces feeling fresh and smelling pleasant.
+  </p>
+</div>
+
+<div class="feature-card">
+  <div class="feature-icon">💚</div>
+  <h3>Affordable</h3>
+  <p>
+    Quality liquid soap at prices suitable for homes, businesses and bulk buyers.
+  </p>
+</div>
+
+<div class="feature-card">
+  <div class="feature-icon">🏠</div>
+  <h3>Multipurpose</h3>
+  <p>
+    Suitable for a variety of everyday cleaning needs around the home and workplace.
+  </p>
+</div>
+
+<div class="feature-card">
+  <div class="feature-icon">📦</div>
+  <h3>Different Sizes</h3>
+  <p>
+    Choose from small bottles for personal use to large quantities for businesses.
+  </p>
+</div>
+
+<div class="feature-card">
+  <div class="feature-icon">🎁</div>
+  <h3>Souvenir Orders</h3>
+  <p>
+    Perfect for weddings, birthdays, parties, corporate events and special occasions.
+  </p>
+</div>
+
+<div class="feature-card">
+  <div class="feature-icon">🏪</div>
+  <h3>Bulk Supply</h3>
+  <p>
+    Large-size options are available for resellers, offices, hotels and businesses.
+  </p>
+</div>
+
+<div class="feature-card">
+  <div class="feature-icon">⭐</div>
+  <h3>Beautiful Packaging</h3>
+  <p>
+    Neat and attractive packaging that looks good at home, in stores or at events.
+  </p>
+</div>
+```
+
   </div>
+
+</section>
+
+<!-- ================= POPULAR PRODUCTS ================= -->
+
+<section>
+
+  <div class="section-title">
+
+```
+<h2>Popular Sizes</h2>
+
+<p>
+  From everyday personal use to large-scale cleaning.
+</p>
+```
+
+  </div>
+
+  <div class="products">
+
+```
+<div class="card">
+
+  <div class="product-image">
+    🧴
+  </div>
+
+  <h3>100ml</h3>
+
+  <span class="hot">🔥 Popular for Souvenirs</span>
+
+  <p>
+    Small and convenient. Perfect for souvenirs, gifts and events.
+  </p>
+
+  <a href="products.html" class="product-link">
+    View Product
+  </a>
+
+</div>
+
+
+<div class="card">
+
+  <div class="product-image">
+    🧴
+  </div>
+
+  <h3>200ml</h3>
+
+  <p>
+    Convenient size for personal use, bathrooms and everyday cleaning.
+  </p>
+
+  <a href="products.html" class="product-link">
+    View Product
+  </a>
+
+</div>
+
+
+<div class="card">
+
+  <div class="product-image">
+    🧴
+  </div>
+
+  <h3>350ml</h3>
+
+  <p>
+    A practical size for regular household cleaning and handwashing.
+  </p>
+
+  <a href="products.html" class="product-link">
+    View Product
+  </a>
+
+</div>
+
+
+<div class="card">
+
+  <div class="product-image">
+    🧴
+  </div>
+
+  <h3>500ml</h3>
+
+  <span class="hot">⭐ Best Value</span>
+
+  <p>
+    One of our convenient everyday sizes for homes and offices.
+  </p>
+
+  <a href="products.html" class="product-link">
+    View Product
+  </a>
+
+</div>
+
+
+<div class="card">
+
+  <div class="product-image">
+    🧴
+  </div>
+
+  <h3>1 Litre</h3>
+
+  <p>
+    Great for households, offices and customers who need more.
+  </p>
+
+  <a href="products.html" class="product-link">
+    View Product
+  </a>
+
+</div>
+
+
+<div class="card">
+
+  <div class="product-image">
+    🪣
+  </div>
+
+  <h3>5 Litres</h3>
+
+  <p>
+    Ideal for families, businesses and regular bulk cleaning.
+  </p>
+
+  <a href="products.html" class="product-link">
+    View Product
+  </a>
+
+</div>
+```
+
+  </div>
+
+</section>
+
+<!-- ================= BULK SUPPLY ================= -->
+
+<section>
+
+  <div class="bulk-section">
+
+```
+<h2>Need More? We Have You Covered 💚</h2>
+
+<p>
+  Buying for your home, office, business, event or resale?
+  Our larger sizes make it easier to buy more and save.
+</p>
+
+
+<div class="large-grid">
+
+  <div class="large-price">
+    <span class="size">1 Litre</span>
+    <strong>Available</strong>
+  </div>
+
+  <div class="large-price">
+    <span class="size">2.5 Litres</span>
+    <strong>Available</strong>
+  </div>
+
+  <div class="large-price">
+    <span class="size">5 Litres</span>
+    <strong>Available</strong>
+    <span class="discount">Bulk option</span>
+  </div>
+
+  <div class="large-price">
+    <span class="size">10 Litres</span>
+    <strong>Available</strong>
+    <span class="discount">Bulk option</span>
+  </div>
+
+  <div class="large-price">
+    <span class="size">25 Litres</span>
+    <strong>Available</strong>
+    <span class="discount">Bulk Deal</span>
+  </div>
+
+</div>
+
+
+<p style="margin-top:22px;">
+  <strong style="color:var(--pink);">
+    💡 Buying more than one larger bottle?
+  </strong>
+  A 3% discount is applied in the cart when eligible larger-size quantities are purchased.
+</p>
+
+
+<a href="products.html" class="hero-btn primary-btn">
+  View All Sizes
+</a>
+```
+
+  </div>
+
+</section>
+
+<!-- ================= SPECIAL ORDERS ================= -->
+
+<section>
+
+  <div class="section-title">
+
+```
+<h2>Special Orders</h2>
+
+<p>
+  Whether you're buying for yourself or planning an event, we've got you.
+</p>
+```
+
+  </div>
+
+  <div class="special-grid">
+
+```
+<div class="special-card special-one">
+
+  <h3>🎁 Souvenir Orders</h3>
+
+  <p>
+    Get beautifully packaged mini liquid soaps for weddings,
+    birthdays, parties and other special occasions.
+  </p>
+
+  <a href="contact.html">
+    Make an Enquiry
+  </a>
+
+</div>
+
+
+<div class="special-card special-two">
+
+  <h3>🏷️ Custom Branded Orders</h3>
+
+  <p>
+    Personalised labels and packaging can be arranged for events,
+    businesses and promotional gifts.
+  </p>
+
+  <a href="contact.html">
+    Ask About Branding
+  </a>
+
+</div>
+
+
+<div class="special-card special-three">
+
+  <h3>📦 Reseller & Bulk Orders</h3>
+
+  <p>
+    Need large quantities? Contact us for bulk purchases and reseller enquiries.
+  </p>
+
+  <a href="contact.html">
+    Contact Us
+  </a>
+
+</div>
+```
+
+  </div>
+
+</section>
+
+<!-- ================= CUSTOMER FEEDBACK ================= -->
+
+<section>
+
+  <div class="section-title">
+
+```
+<h2>We Value Your Feedback 💚</h2>
+
+<p>
+  Have you used Apinkeade Multipurpose Liquid Soap?
+  We'd love to hear about your experience.
+</p>
+```
+
+  </div>
+
+  <div class="feedback-box">
+
+```
+<h3>Tell Us What You Think</h3>
+
+<p>
+  Your honest feedback helps us improve our products and serve you better.
+</p>
+
+<a href="contact.html" class="feedback-btn">
+  Leave Feedback
+</a>
+```
+
+  </div>
+
+</section>
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+  <div class="footer-grid">
+
+```
+<div>
+
+  <h3>Apinkeade</h3>
+
+  <p>
+    Premium Multipurpose Liquid Soap for homes,
+    businesses, events and bulk orders.
+  </p>
+
+</div>
+
+
+<div>
+
+  <h3>Quick Links</h3>
+
+  <p><a href="home.html">Home</a></p>
+  <p><a href="products.html">Products</a></p>
+  <p><a href="cart.html">Cart</a></p>
+  <p><a href="contact.html">Contact</a></p>
+
+</div>
+
+
+<div>
+
+  <h3>Contact Us</h3>
+
+  <p>
+    📞
+    <a href="tel:07033416441">
+      07033416441
+    </a>
+  </p>
+
+  <p>
+    ✉️
+    <a href="mailto:apinkeadesparkles@gmail.com">
+      apinkeadesparkles@gmail.com
+    </a>
+  </p>
+
+  <p>
+    📍 Abeokuta, Nigeria
+  </p>
+
+</div>
+
+
+<div>
+
+  <h3>Follow Us</h3>
+
+  <p>
+    <a href="#" target="_blank">
+      Facebook
+    </a>
+  </p>
+
+  <p>
+    <a href="#" target="_blank">
+      Instagram
+    </a>
+  </p>
+
+  <p>
+    <a href="#" target="_blank">
+      TikTok
+    </a>
+  </p>
+
+</div>
+```
+
+  </div>
+
+  <div class="footer-bottom">
+
+```
+&copy; 2026 Apinkeade Multipurpose Liquid Soap.
+All rights reserved.
+```
+
+  </div>
+
 </footer>
 
-<script>
-// Scroll fade-in
-const sections = document.querySelectorAll('.fade-section');
-window.addEventListener('scroll', () => {
-  sections.forEach(section => {
-    const top = section.getBoundingClientRect().top;
-    const windowHeight = window.innerHeight;
-    if(top < windowHeight - 100){
-      section.classList.add('visible');
-    }
-  });
-});
+<!-- ================= WHATSAPP BUTTON ================= -->
 
-// 200 customer names
-const customerNames = [
-  "Mercy","Bukola","Shola","Mr Ade","Mr Funmi","Mrs Ojo","Tunde","Aisha","Chuka","Funke",
-  "David","Ngozi","Emeka","Yetunde","Ifeanyi","Bola","Olamide","Sade","Femi","Uche",
-  "John","Jane","Paul","Peter","Mary","Grace","Mike","Linda","Samuel","Ruth",
-  "Chinwe","Bamidele","Amaka","Kingsley","Kemi","Segun","Blessing","Tolulope","Daniel","Faith",
-  "Olusegun","Adesua","Ayo","Chioma","Tosin","Emmanuel","Victoria","Patrick","Esther","Joseph",
-  "Rebecca","Michael","Ada","Abiola","Helen","Gabriel","Patience","Victor","Chidinma","James",
-  "Mercy","Bukola","Shola","Mr Ade","Mr Funmi","Mrs Ojo","Tunde","Aisha","Chuka","Funke",
-    "David","Ngozi","Emeka","Yetunde","Ifeanyi","Bola","Olamide","Sade","Femi","Uche",
-    "John","Jane","Paul","Peter","Mary","Grace","Mike","Linda","Samuel","Ruth",
-    "Chinwe","Bamidele","Amaka","Kingsley","Kemi","Segun","Blessing","Tolulope","Daniel","Faith",
-    "Olusegun","Adesua","Ayo","Chioma","Tosin","Emmanuel","Victoria","Patrick","Esther","Joseph",
-    "Rebecca","Michael","Ada","Abiola","Helen","Gabriel","Patience","Victor","Chidinma","James",
-    "Rose","Ejiro","Damilola","Sarah","Davidson","Precious","Ezekiel","Joy","Ijeoma","Richard",
-    "Olivia","Stanley","Chidera","Hannah","Chukwudi","Ogechi","Ibrahim","Rita","Kenneth","Uchenna",
-    "Florence","Abigail","Emmanuel","Blessing","Adaobi","Chuka","Elizabeth","Ike","Maryam","Obinna",
-    "Favour","Emeka","Rachael","Victor","Uzoamaka","Samuel","Chinyere","Henry","Simi","Chinonso",
-    "Temi","Chukwuemeka","Esther","Oluwaseun","Suleiman","Amara","Chinaza","Tayo","Ngozi","Olamide"
-];
+<a
+class="whatsapp"
+href="https://wa.me/2347033416441?text=Hello%20Apinkeade%2C%20I%20want%20to%20make%20an%20enquiry."
+target="_blank"
+aria-label="Chat with us on WhatsApp">
 
+💬
 
-// 40 unique testimonial texts
-const testimonialTexts = [
-  "Apinkeade Sparkles made my event souvenirs extra special – everyone loved them!",
-  "Even a single bottle of Apinkeade Sparkles is enough to feel luxurious.",
-  "Thank you, Apinkeade Sparkles, for creating such a fragrant and long-lasting soap!",
-  "My guests couldn’t stop talking about the Apinkeade Sparkles souvenirs – highly recommend!",
-  "Single bottle purchase was perfect – smells amazing and lasts long.",
-  "Apinkeade Sparkles made my gift bags unforgettable – thank you!",
-  "I always recommend Apinkeade Sparkles to friends and family – they love it!",
-  "The souvenir sets of Apinkeade Sparkles were a big hit at my wedding.",
-  "Even a single bottle feels premium – I’m impressed!",
-  "Thank you for a soap that makes every handwash feel special and refreshing!",
-  "Apinkeade Sparkles added elegance to my party favors – everyone noticed!",
-  "I highly recommend Apinkeade Sparkles for gifts and souvenirs – perfect quality.",
-  "Single bottles of Apinkeade Sparkles are perfect for personal use – smells divine!",
-  "My guests were thrilled with Apinkeade Sparkles – thank you for making it so special!",
-  "Apinkeade Sparkles is my favorite soap now – I recommend it to everyone!",
-  "Thank you for creating a soap that smells heavenly and lasts long!",
-  "The Apinkeade Sparkles souvenir set was appreciated by everyone at my corporate event.",
-  "I recommend Apinkeade Sparkles to anyone who wants a luxurious yet affordable soap.",
-  "Single bottle of Apinkeade Sparkles exceeded my expectations – smells amazing!",
-  "Apinkeade Sparkles made my wedding favors unique and memorable!",
-  "Thank you for a soap that feels premium but is perfect for everyday use!",
-  "I always recommend Apinkeade Sparkles – it’s soft, fragrant, and long-lasting!",
-  "My guests loved the Apinkeade Sparkles souvenirs – highly recommend for events!",
-  "Even buying one bottle feels like a treat – Apinkeade Sparkles is wonderful!",
-  "Apinkeade Sparkles made my birthday party souvenirs unforgettable!",
-  "Thank you for a soap that my friends actually ask to buy themselves!",
-  "The fragrance of Apinkeade Sparkles is refreshing and long-lasting – highly recommend!",
-  "Apinkeade Sparkles makes every handwash feel luxurious – I recommend it to all!",
-  "I bought a single bottle as a gift – everyone loved it!",
-  "The Apinkeade Sparkles souvenir set made my event feel elegant and special!",
-  "Thank you for a soap that’s practical, beautiful, and fragrant!",
-  "Single bottle of Apinkeade Sparkles is perfect for everyday handwashing!",
-  "Apinkeade Sparkles souvenirs were a hit at my baby shower – I highly recommend it!",
-  "I always recommend Apinkeade Sparkles – it’s the perfect gift for any occasion!",
-  "Even one bottle of Apinkeade Sparkles feels premium – very satisfied!",
-  "Thank you for making a soap that is both elegant and effective!",
-  "Apinkeade Sparkles added a special touch to my wedding souvenirs – everyone loved it!",
-  "My friends keep asking me where to get Apinkeade Sparkles – I recommend it to all!",
-  "Single bottles are perfect for personal use – Apinkeade Sparkles smells divine!"
-];
-
-// Build 200 testimonial objects
-const testimonialsData = [];
-for(let i=0;i<200;i++){
-  testimonialsData.push({
-    text: testimonialTexts[i % testimonialTexts.length],
-    author: customerNames[i % customerNames.length]
-  });
-}
-
-const container = document.getElementById('testimonial-container');
-
-// Create testimonial divs
-testimonialsData.forEach((t,index)=>{
-  const div = document.createElement('div');
-  div.classList.add('testimonial');
-  if(index===0) div.classList.add('active');
-  div.innerHTML = `<p>${t.text}</p><strong>${t.author}</strong>`;
-  container.appendChild(div);
-});
-
-// Rotate testimonials
-let current = 0;
-const testimonialElements = document.querySelectorAll('.testimonial');
-setInterval(()=>{
-  testimonialElements[current].classList.remove('active');
-  current = (current+1) % testimonialElements.length;
-  testimonialElements[current].classList.add('active');
-},6000);
-</script>
-
-<script>
-// ===== REAL CUSTOMER FEEDBACK (LOCAL STORAGE) =====
-const feedbackForm = document.getElementById('feedbackForm');
-let realFeedback = JSON.parse(localStorage.getItem('realFeedback')) || [];
-   
-
-
-// FORM SUBMIT
-document.getElementById('feedbackForm').addEventListener('submit', e => {
-  e.preventDefault();
-  
-  const name = custName.value.trim();
-  const msg = custMessage.value.trim();
-  if (!name || !msg) return;
-
-  const fb = { author: name, text: msg };
-
-  // Save in localStorage
-  realFeedback.unshift(fb);
-  localStorage.setItem('realFeedback', JSON.stringify(realFeedback));
-
-  // Add testimonial immediately
-  const div = document.createElement('div');
-  div.className = 'testimonial';
-  div.innerHTML = `<p>${fb.text}</p><strong>${fb.author}</strong>`;
-  
-  // Highlight temporarily
-  div.style.border = "2px solid #ff7f50";
-  div.style.boxShadow = "0 0 15px #ff7f50";
-  container.prepend(div);
-
-  // Remove highlight after 2 seconds
-  setTimeout(() => {
-    div.style.border = "";
-    div.style.boxShadow = "";
-  }, 2000);
-
-  // Clear form
-  custName.value = "";
-  custMessage.value = "";
-});
-
-// Load saved real feedback first
-realFeedback.forEach(t => addRealTestimonial(t));
-
-feedbackForm.addEventListener('submit', e => {
-  e.preventDefault();
-
-  const name = document.getElementById('custName').value.trim();
-  const message = document.getElementById('custMessage').value.trim();
-
-  if(!name || !message) return;
-
-  const feedback = { author: name, text: message };
-
-  realFeedback.unshift(feedback);
-  localStorage.setItem('realFeedback', JSON.stringify(realFeedback));
-
-  addRealTestimonial(feedback);
-  feedbackForm.reset();
-});
-
-function addRealTestimonial(t){
-  const div = document.createElement('div');
-  div.classList.add('testimonial','active');
-  div.innerHTML = `<p>${t.text}</p><strong>${t.author}</strong>`;
-  container.prepend(div);
-}
-</script>
-
+</a>
 
 </body>
 </html>
