@@ -3,171 +3,1105 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Contact - Apinkeade Sparkles</title>
+
+<title>Contact - Apinkeade Multipurpose Liquid Soap</title>
 
 <style>
+:root{
+  --green:#176b45;
+  --dark:#0f4f32;
+  --mint:#eefaf3;
+  --pink:#d81778;
+  --purple:#5a2296;
+  --gold:#f3b51b;
+  --text:#26352e;
+  --border:#d9eee2;
+  --white:#ffffff;
+}
+
+*{
+  box-sizing:border-box;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
 body{
   margin:0;
-  font-family:Segoe UI,sans-serif;
-  background:linear-gradient(to right, #fefcea, #f1da36, #fbb034);
-  color:#333;
+  font-family:"Segoe UI",Arial,sans-serif;
+  background:linear-gradient(to bottom,#f8fffa,#eefaf3);
+  color:var(--text);
 }
+
+/* =========================
+   NAVIGATION
+========================= */
+
 nav{
+  position:sticky;
+  top:0;
+  z-index:1000;
+
   display:flex;
   justify-content:space-between;
   align-items:center;
-  padding:15px 30px;
-  background:#ff7f50;
+  gap:20px;
+
+  padding:15px 6%;
+
+  background:var(--green);
   color:white;
-  box-shadow:0 4px 10px rgba(0,0,0,0.2);
+
+  box-shadow:0 4px 15px rgba(0,0,0,.12);
 }
+
+.logo{
+  font-size:1.05rem;
+  font-weight:900;
+  letter-spacing:.2px;
+}
+
+nav div{
+  display:flex;
+  align-items:center;
+  flex-wrap:wrap;
+  gap:5px;
+}
+
 nav a{
   text-decoration:none;
-  margin:0 10px;
   color:white;
-  font-weight:600;
+  font-weight:700;
+  padding:8px 12px;
+  border-radius:20px;
+  transition:.25s;
 }
+
+nav a:hover,
+nav a.active{
+  background:rgba(255,255,255,.17);
+}
+
+/* =========================
+   HERO
+========================= */
+
 .hero{
-  padding:80px 20px;
+  position:relative;
+  overflow:hidden;
+
   text-align:center;
-  color:rgb(5, 5, 5);
+
+  padding:75px 20px 65px;
+
+  background:
+    radial-gradient(circle at top left,rgba(216,23,120,.12),transparent 30%),
+    radial-gradient(circle at bottom right,rgba(90,34,150,.10),transparent 30%),
+    var(--mint);
 }
-.hero h1{font-size:2.5rem;margin-bottom:10px;}
-.hero p{font-size:1.2rem;}
-section{
-  padding:40px 20px;
-  max-width:800px;
+
+.hero::before{
+  content:"";
+  position:absolute;
+  width:180px;
+  height:180px;
+  border-radius:50%;
+  background:rgba(243,181,27,.13);
+  top:-70px;
+  right:-50px;
+}
+
+.hero h1{
+  position:relative;
+  margin:0 0 12px;
+
+  font-size:clamp(2rem,5vw,3.2rem);
+
+  color:var(--green);
+}
+
+.hero h1 span{
+  color:var(--pink);
+}
+
+.hero p{
+  position:relative;
+
+  max-width:650px;
   margin:auto;
-  text-align:center;
+
+  font-size:1.08rem;
+  line-height:1.7;
+
+  color:#53635b;
 }
-input, textarea{
-  width:80%;
-  max-width:400px;
-  padding:12px;
-  margin:8px 0;
-  border-radius:15px;
-  border:1px solid #ccc;
-  font-size:1rem;
+
+/* =========================
+   CONTACT SECTION
+========================= */
+
+.contact-section{
+  width:min(1100px,92%);
+  margin:45px auto;
 }
-button{
-  padding:12px 25px;
-  border:none;
+
+.contact-grid{
+  display:grid;
+  grid-template-columns:1fr 1.25fr;
+  gap:28px;
+}
+
+/* =========================
+   CONTACT INFO
+========================= */
+
+.contact-card{
+  background:white;
+  border:1px solid var(--border);
   border-radius:25px;
-  background:#ff7f50;
+
+  padding:30px;
+
+  box-shadow:0 12px 30px rgba(23,107,69,.09);
+}
+
+.contact-card h2{
+  margin-top:0;
+  color:var(--green);
+}
+
+.contact-card > p{
+  color:#68776f;
+  line-height:1.7;
+}
+
+.info-item{
+  display:flex;
+  align-items:flex-start;
+  gap:15px;
+
+  margin:22px 0;
+  padding:15px;
+
+  border-radius:15px;
+
+  background:var(--mint);
+}
+
+.info-icon{
+  width:42px;
+  height:42px;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  flex-shrink:0;
+
+  border-radius:50%;
+
+  background:white;
+
+  font-size:1.2rem;
+}
+
+.info-item h3{
+  margin:0 0 4px;
+  font-size:.95rem;
+  color:var(--green);
+}
+
+.info-item p{
+  margin:0;
+  color:#59675f;
+  line-height:1.5;
+}
+
+.info-item a{
+  color:var(--pink);
+  text-decoration:none;
+  font-weight:700;
+}
+
+.info-item a:hover{
+  text-decoration:underline;
+}
+
+/* =========================
+   BUSINESS HIGHLIGHTS
+========================= */
+
+.highlights{
+  margin-top:25px;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:12px;
+}
+
+.highlight{
+  padding:15px;
+  border-radius:15px;
+  background:#fff8df;
+  border:1px solid #f6e7af;
+}
+
+.highlight strong{
+  display:block;
+  color:var(--purple);
+  margin-bottom:4px;
+}
+
+.highlight span{
+  color:#68736d;
+  font-size:.85rem;
+}
+
+/* =========================
+   FORM
+========================= */
+
+.form-card{
+  background:white;
+  border:1px solid var(--border);
+  border-radius:25px;
+
+  padding:30px;
+
+  box-shadow:0 12px 30px rgba(23,107,69,.09);
+}
+
+.form-card h2{
+  margin-top:0;
+  color:var(--green);
+}
+
+.form-card .intro{
+  color:#68776f;
+  line-height:1.6;
+  margin-bottom:25px;
+}
+
+.form-group{
+  margin-bottom:18px;
+}
+
+.form-group label{
+  display:block;
+
+  margin-bottom:7px;
+
+  color:#405249;
+  font-weight:800;
+  font-size:.92rem;
+}
+
+input,
+textarea{
+  width:100%;
+
+  padding:13px 14px;
+
+  border:1px solid #c8e3d3;
+  border-radius:12px;
+
+  outline:none;
+
+  font-family:inherit;
+  font-size:.95rem;
+
+  color:var(--text);
+
+  background:#fff;
+
+  transition:.25s;
+}
+
+input:focus,
+textarea:focus{
+  border-color:var(--green);
+
+  box-shadow:
+    0 0 0 3px rgba(23,107,69,.09);
+}
+
+textarea{
+  min-height:140px;
+  resize:vertical;
+}
+
+button{
+  width:100%;
+
+  padding:14px 20px;
+
+  border:none;
+  border-radius:14px;
+
+  background:var(--green);
   color:white;
-  font-weight:bold;
+
+  font-size:1rem;
+  font-weight:900;
+
   cursor:pointer;
-  margin-top:10px;
+
+  transition:.25s;
 }
-.contact-info{
-  margin-top:40px;
-  text-align:left;
-  max-width:400px;
-  margin-left:auto;
-  margin-right:auto;
-  line-height:1.8;
+
+button:hover{
+  background:var(--dark);
+  transform:translateY(-2px);
 }
-.contact-info a{color:#ff7f50;text-decoration:none;}
+
+button:disabled{
+  opacity:.7;
+  cursor:not-allowed;
+  transform:none;
+}
+
+/* =========================
+   SUCCESS MESSAGE
+========================= */
+
+.success-msg{
+  margin-top:15px;
+  padding:12px;
+
+  border-radius:12px;
+
+  text-align:center;
+
+  font-weight:700;
+  display:none;
+}
+
+.success-msg.success{
+  display:block;
+
+  background:#e8f8ee;
+  color:var(--green);
+
+  border:1px solid #c8e8d5;
+}
+
+.success-msg.error{
+  display:block;
+
+  background:#fff0f5;
+  color:var(--pink);
+
+  border:1px solid #f2c9da;
+}
+
+/* =========================
+   SOCIAL SECTION
+========================= */
+
+.social-section{
+  margin-top:30px;
+
+  padding:28px;
+
+  text-align:center;
+
+  background:white;
+
+  border:1px solid var(--border);
+  border-radius:25px;
+
+  box-shadow:0 10px 25px rgba(23,107,69,.07);
+}
+
+.social-section h2{
+  margin-top:0;
+  color:var(--green);
+}
+
+.social-section p{
+  color:#68776f;
+}
+
 .social-links{
+  display:flex;
+  justify-content:center;
+  flex-wrap:wrap;
+  gap:12px;
+
   margin-top:20px;
 }
+
 .social-links a{
-  margin:0 10px;
+  display:inline-block;
+
+  padding:10px 18px;
+
+  border-radius:22px;
+
   text-decoration:none;
-  color:#ff7f50;
-  font-weight:bold;
+
+  font-weight:800;
+
+  background:var(--mint);
+  color:var(--green);
+
+  border:1px solid var(--border);
+
+  transition:.25s;
 }
-footer{
-  background:#ff7f50;
+
+.social-links a:hover{
+  background:var(--green);
   color:white;
-  padding:40px 20px;
-  text-align:center;
-  margin-top:40px;
 }
-.success-msg{
-  color:green;
-  font-weight:bold;
-  margin-top:10px;
+
+/* =========================
+   WHATSAPP
+========================= */
+
+.whatsapp-box{
+  margin-top:30px;
+
+  padding:25px;
+
+  text-align:center;
+
+  background:linear-gradient(
+    135deg,
+    #eefaf3,
+    #fff8df
+  );
+
+  border-radius:22px;
+
+  border:1px solid var(--border);
+}
+
+.whatsapp-box h3{
+  margin:0 0 8px;
+  color:var(--green);
+}
+
+.whatsapp-box p{
+  color:#65736c;
+  margin:0 0 17px;
+}
+
+.whatsapp-btn{
+  display:inline-block;
+
+  padding:12px 24px;
+
+  background:var(--green);
+  color:white;
+
+  border-radius:25px;
+
+  text-decoration:none;
+
+  font-weight:900;
+
+  transition:.25s;
+}
+
+.whatsapp-btn:hover{
+  background:var(--dark);
+  transform:translateY(-2px);
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+footer{
+  margin-top:55px;
+
+  background:var(--dark);
+  color:white;
+
+  padding:40px 20px;
+
+  text-align:center;
+}
+
+.footer-brand{
+  font-size:1.15rem;
+  font-weight:900;
+  margin-bottom:10px;
+}
+
+footer p{
+  margin:6px 0;
+  color:#d9eee2;
+  font-size:.9rem;
+}
+
+.footer-links{
+  margin:20px 0;
+}
+
+.footer-links a{
+  color:white;
+  text-decoration:none;
+  margin:0 10px;
+  font-size:.9rem;
+}
+
+.footer-links a:hover{
+  color:var(--gold);
+}
+
+.copyright{
+  margin-top:20px;
+  padding-top:20px;
+  border-top:1px solid rgba(255,255,255,.15);
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media(max-width:800px){
+
+  nav{
+    flex-direction:column;
+    padding:13px 4%;
+  }
+
+  nav div{
+    justify-content:center;
+  }
+
+  nav a{
+    font-size:.82rem;
+    padding:7px 9px;
+  }
+
+  .hero{
+    padding:55px 18px;
+  }
+
+  .contact-grid{
+    grid-template-columns:1fr;
+  }
+
+}
+
+@media(max-width:500px){
+
+  .contact-section{
+    width:94%;
+  }
+
+  .contact-card,
+  .form-card{
+    padding:22px 18px;
+  }
+
+  .highlights{
+    grid-template-columns:1fr;
+  }
+
+  .social-links{
+    flex-direction:column;
+  }
+
+  .social-links a{
+    width:100%;
+  }
+
 }
 </style>
 </head>
+
 <body>
 
+<!-- =========================
+     NAVIGATION
+========================= -->
+
 <nav>
-  <strong>Apinkeade Sparkles</strong>
+
+  <div class="logo">
+    Apinkeade Multipurpose Liquid Soap
+  </div>
+
   <div>
     <a href="home.html">Home</a>
     <a href="products.html">Products</a>
     <a href="cart.html">Cart</a>
-    <a href="contact.html">Contact</a>
+    <a href="contact.html" class="active">Contact</a>
   </div>
+
 </nav>
 
+
+<!-- =========================
+     HERO
+========================= -->
+
 <div class="hero">
-  <h1>Contact Us</h1>
-  <p>We’re happy to hear from you! Send us a message below.</p>
+
+  <h1>
+    Contact <span>Us</span>
+  </h1>
+
+  <p>
+    Have a question about our liquid soap, bulk orders,
+    souvenirs or custom orders? We’re always happy to hear from you.
+  </p>
+
 </div>
 
-<section>
-  <h2>Send a Message</h2>
-  <form id="contactForm">
-    <input type="text" id="name" placeholder="Your Name" required><br>
-    <input type="email" id="email" placeholder="Your Email" required><br>
-    <input type="text" id="phone" placeholder="Your Phone (optional)"><br>
-    <textarea id="message" placeholder="Your Message" rows="5" required></textarea><br>
-    <button type="submit">Submit</button>
-    <div class="success-msg" id="successMsg"></div>
-  </form>
 
-  <div class="contact-info">
-    <h3>Contact Information</h3>
-    <p>📞 Phone: <a href="tel:07033416441">07033416441</a></p>
-    <p>✉️ Email: <a href="mailto:apinkeadesparkles@gmail.com">apinkeadesparkles@gmail.com</a></p>
-    <p>🏠 Address: Abeokuta, Nigeria</p>
+<!-- =========================
+     CONTACT CONTENT
+========================= -->
+
+<section class="contact-section">
+
+  <div class="contact-grid">
+
+
+    <!-- CONTACT INFORMATION -->
+
+    <div class="contact-card">
+
+      <h2>Get in Touch</h2>
+
+      <p>
+        Whether you want to make an enquiry, place a bulk order,
+        request souvenirs or simply ask a question, feel free to reach out.
+      </p>
+
+
+      <div class="info-item">
+
+        <div class="info-icon">📞</div>
+
+        <div>
+
+          <h3>Phone / WhatsApp</h3>
+
+          <p>
+            <a href="tel:07033416441">
+              07033416441
+            </a>
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <div class="info-item">
+
+        <div class="info-icon">✉️</div>
+
+        <div>
+
+          <h3>Email</h3>
+
+          <p>
+            <a href="mailto:apinkeadesparkles@gmail.com">
+              apinkeadesparkles@gmail.com
+            </a>
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <div class="info-item">
+
+        <div class="info-icon">📍</div>
+
+        <div>
+
+          <h3>Location</h3>
+
+          <p>
+            Abeokuta, Ogun State, Nigeria
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <!-- HIGHLIGHTS -->
+
+      <div class="highlights">
+
+        <div class="highlight">
+
+          <strong>🧼 Liquid Soap</strong>
+
+          <span>
+            Available in different sizes
+          </span>
+
+        </div>
+
+
+        <div class="highlight">
+
+          <strong>🎁 Souvenirs</strong>
+
+          <span>
+            Custom orders available
+          </span>
+
+        </div>
+
+
+        <div class="highlight">
+
+          <strong>📦 Bulk Orders</strong>
+
+          <span>
+            Larger quantities welcome
+          </span>
+
+        </div>
+
+
+        <div class="highlight">
+
+          <strong>✨ Custom Orders</strong>
+
+          <span>
+            Talk to us about your needs
+          </span>
+
+        </div>
+
+      </div>
+
+
+      <!-- WHATSAPP -->
+
+      <div class="whatsapp-box">
+
+        <h3>Need a Quick Response?</h3>
+
+        <p>
+          Chat with us directly on WhatsApp.
+        </p>
+
+        <a
+          class="whatsapp-btn"
+          href="https://wa.me/2347033416441"
+          target="_blank">
+
+          💬 Chat on WhatsApp
+
+        </a>
+
+      </div>
+
+    </div>
+
+
+    <!-- CONTACT FORM -->
+
+    <div class="form-card">
+
+      <h2>Send Us a Message</h2>
+
+      <p class="intro">
+        Fill in the form below and we'll get back to you as soon as possible.
+      </p>
+
+
+      <form id="contactForm">
+
+        <div class="form-group">
+
+          <label for="name">
+            Your Name
+          </label>
+
+          <input
+            type="text"
+            id="name"
+            placeholder="Enter your name"
+            required>
+
+        </div>
+
+
+        <div class="form-group">
+
+          <label for="email">
+            Your Email
+          </label>
+
+          <input
+            type="email"
+            id="email"
+            placeholder="Enter your email address"
+            required>
+
+        </div>
+
+
+        <div class="form-group">
+
+          <label for="phone">
+            Your Phone Number
+          </label>
+
+          <input
+            type="tel"
+            id="phone"
+            placeholder="Enter your phone number">
+
+        </div>
+
+
+        <div class="form-group">
+
+          <label for="message">
+            Your Message
+          </label>
+
+          <textarea
+            id="message"
+            placeholder="How can we help you?"
+            required></textarea>
+
+        </div>
+
+
+        <button
+          type="submit"
+          id="submitBtn">
+
+          Send Message
+
+        </button>
+
+
+        <div
+          class="success-msg"
+          id="successMsg">
+        </div>
+
+      </form>
+
+    </div>
+
   </div>
 
-  <div class="social-links">
-    <h3>Follow Us</h3>
-    <a href="https://www.facebook.com/YourFacebookPage" target="_blank">Facebook</a> |
-    <a href="https://www.instagram.com/YourInstagramPage" target="_blank">Instagram</a> |
-    <a href="https://www.linkedin.com/in/YourLinkedInProfile" target="_blank">LinkedIn</a>
+
+  <!-- SOCIAL MEDIA -->
+
+  <div class="social-section">
+
+    <h2>Follow Apinkeade</h2>
+
+    <p>
+      Stay connected with us for product updates,
+      new offers and more.
+    </p>
+
+    <div class="social-links">
+
+      <a
+        href="https://www.facebook.com/YourFacebookPage"
+        target="_blank">
+        Facebook
+      </a>
+
+      <a
+        href="https://www.instagram.com/YourInstagramPage"
+        target="_blank">
+        Instagram
+      </a>
+
+      <a
+        href="https://www.linkedin.com/in/YourLinkedInProfile"
+        target="_blank">
+        LinkedIn
+      </a>
+
+    </div>
+
   </div>
+
 </section>
 
+
+<!-- =========================
+     FOOTER
+========================= -->
+
 <footer>
-  &copy; 2026 Apinkeade Sparkles. All rights reserved.
+
+  <div class="footer-brand">
+    Apinkeade Multipurpose Liquid Soap
+  </div>
+
+  <p>
+    Clean • Fresh • Reliable
+  </p>
+
+  <p>
+    📞 07033416441
+  </p>
+
+  <p>
+    ✉️ apinkeadesparkles@gmail.com
+  </p>
+
+  <p>
+    📍 Abeokuta, Ogun State, Nigeria
+  </p>
+
+
+  <div class="footer-links">
+
+    <a href="home.html">Home</a>
+
+    <a href="products.html">Products</a>
+
+    <a href="cart.html">Cart</a>
+
+    <a href="contact.html">Contact</a>
+
+  </div>
+
+
+  <div class="copyright">
+
+    &copy; 2026 Apinkeade Multipurpose Liquid Soap.
+    All rights reserved.
+
+  </div>
+
 </footer>
 
-<!-- EmailJS SDK -->
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+
+<!-- =========================
+     EMAILJS
+========================= -->
+
+<script
+  type="text/javascript"
+  src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js">
+</script>
+
+
 <script>
 
-  // Initialize EmailJS with your public key
-  emailjs.init('-uyCSiHyU5XOhEaNW');
+/* Initialize EmailJS */
 
-  const form = document.getElementById('contactForm');
-  const successMsg = document.getElementById('successMsg');
+emailjs.init('-uyCSiHyU5XOhEaNW');
 
-  form.addEventListener('submit', function(e) {
-    e.preventDefault();
 
-    const templateParams = {
-      from_name: document.getElementById('name').value,
-      from_email: document.getElementById('email').value,
-      from_phone: document.getElementById('phone').value,
-      message: document.getElementById('message').value
-    };
+const form =
+  document.getElementById('contactForm');
 
-    emailjs.send('service_sdd5obg', 'template_jbuu2ir', templateParams)
-      .then(function(response) {
-        successMsg.textContent = "Thank you! Your message has been sent.";
-        form.reset();
-        setTimeout(()=> successMsg.textContent = '', 4000);
-      }, function(error) {
-        successMsg.textContent = "Oops! Something went wrong. Please try again.";
-        console.error('EmailJS error:', error);
-      });
+const successMsg =
+  document.getElementById('successMsg');
+
+const submitBtn =
+  document.getElementById('submitBtn');
+
+
+/* =========================
+   CONTACT FORM
+========================= */
+
+form.addEventListener('submit', function(e){
+
+  e.preventDefault();
+
+
+  submitBtn.disabled = true;
+
+  submitBtn.textContent = "Sending...";
+
+
+  const templateParams = {
+
+    from_name:
+      document.getElementById('name').value.trim(),
+
+    from_email:
+      document.getElementById('email').value.trim(),
+
+    from_phone:
+      document.getElementById('phone').value.trim(),
+
+    message:
+      document.getElementById('message').value.trim()
+
+  };
+
+
+  emailjs.send(
+    'service_sdd5obg',
+    'template_jbuu2ir',
+    templateParams
+  )
+
+  .then(function(response){
+
+    successMsg.className =
+      "success-msg success";
+
+    successMsg.textContent =
+      "Thank you! Your message has been sent successfully. 💚";
+
+
+    form.reset();
+
+
+    submitBtn.disabled = false;
+
+    submitBtn.textContent =
+      "Send Message";
+
+
+    setTimeout(function(){
+
+      successMsg.className =
+        "success-msg";
+
+      successMsg.textContent = "";
+
+    },5000);
+
+  })
+
+
+  .catch(function(error){
+
+    console.error(
+      "EmailJS error:",
+      error
+    );
+
+
+    successMsg.className =
+      "success-msg error";
+
+    successMsg.textContent =
+      "Oops! Something went wrong. Please try again or contact us on WhatsApp.";
+
+
+    submitBtn.disabled = false;
+
+    submitBtn.textContent =
+      "Send Message";
+
   });
+
+});
+
 </script>
 
 </body>
