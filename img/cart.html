@@ -1,160 +1,1175 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Cart - Apinkeade Sparkles</title>
+
+<title>Cart - Apinkeade Sparkles Multipurpose Liquid Soap</title>
+
 <style>
-body{
-  margin:0;
-  font-family:Segoe UI,sans-serif;
-  background:linear-gradient(to right, #fefcea, #f1da36, #fbb034); /* sunny soap color gradient */
-  color:#333;
+:root{
+  --green:#176b45;
+  --dark:#0f4f32;
+  --mint:#eefaf3;
+  --pink:#d81778;
+  --purple:#5a2296;
+  --gold:#f3b51b;
+  --text:#26352e;
+  --border:#d9eee2;
+  --white:#fff;
 }
 
+*{
+  box-sizing:border-box;
+}
+
+body{
+  margin:0;
+  font-family:"Segoe UI",Arial,sans-serif;
+  background:linear-gradient(#f7fff9,#eef8f2);
+  color:var(--text);
+}
+
+/* NAVIGATION */
+
 nav{
+  position:sticky;
+  top:0;
+  z-index:100;
   display:flex;
   justify-content:space-between;
   align-items:center;
-  padding:15px 20px;
-  background:#ff7f50; /* coral header */
-  color:white;
-  box-shadow:0 2px 5px rgba(0,0,0,0.1);
+  gap:18px;
+  padding:14px 6%;
+  background:var(--green);
+  color:#fff;
+  box-shadow:0 4px 18px rgba(0,0,0,.12);
+}
+
+.logo{
+  font-size:1.1rem;
+  font-weight:900;
+}
+
+nav div{
+  display:flex;
+  flex-wrap:wrap;
+  gap:5px;
 }
 
 nav a{
+  color:#fff;
   text-decoration:none;
-  margin:0 10px;
-  color:white;
-  font-weight:600;
+  font-weight:700;
+  padding:8px 12px;
+  border-radius:20px;
 }
+
+nav a:hover,
+nav a.active{
+  background:rgba(255,255,255,.16);
+}
+
+/* MAIN */
 
 section{
-  padding:40px;
-  max-width:800px;
-  margin:auto;
-  background:white;
-  border-radius:20px;
-  box-shadow:0 10px 20px rgba(0,0,0,0.1);
+  width:min(900px,92%);
+  margin:40px auto;
+  background:#fff;
+  border:1px solid var(--border);
+  border-radius:25px;
+  padding:30px;
+  box-shadow:0 10px 30px rgba(23,107,69,.10);
 }
 
-h2{text-align:center;color:#ff7f50;}
+h1{
+  text-align:center;
+  color:var(--green);
+  margin-top:0;
+}
+
+.subtitle{
+  text-align:center;
+  color:#718078;
+  margin-bottom:30px;
+}
+
+/* CART ITEMS */
 
 .cart-item{
-  display:flex;
-  justify-content:space-between;
+  display:grid;
+  grid-template-columns:1fr auto auto auto;
   align-items:center;
-  padding:12px;
-  border-bottom:1px solid #ccc;
+  gap:15px;
+  padding:17px 5px;
+  border-bottom:1px solid var(--border);
 }
 
-.cart-item span{
-  margin-right:10px;
+.item-name{
+  font-weight:800;
+  color:var(--green);
 }
 
-button{
-  background:#ff7f50;
-  color:white;
+.item-price{
+  color:#52635b;
+  font-size:.9rem;
+}
+
+.quantity-area{
+  display:flex;
+  align-items:center;
+  gap:7px;
+}
+
+.qty-btn{
+  width:35px;
+  height:35px;
+  padding:0;
   border:none;
-  padding:8px 15px;
-  border-radius:20px;
+  border-radius:50%;
+  background:var(--green);
+  color:#fff;
+  font-size:1.2rem;
   cursor:pointer;
-  margin-left:5px;
-  font-size:14px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.qty-btn:hover{
+  background:var(--dark);
 }
 
 .quantity-input{
-  width:50px;
-  padding:5px;
-  border-radius:8px;
-  border:1px solid #ccc;
+  width:55px;
+  height:35px;
+  border:1px solid #a8d5ba;
+  border-radius:9px;
   text-align:center;
+  font-weight:800;
+  font-size:1rem;
+}
+
+/* Keep native spinner arrows visible */
+
+.quantity-input::-webkit-inner-spin-button,
+.quantity-input::-webkit-outer-spin-button{
+  opacity:1;
+}
+
+.item-total{
+  font-weight:900;
+  color:var(--green);
+  min-width:95px;
+  text-align:right;
+}
+
+.remove-btn{
+  border:none;
+  background:#fff0f6;
+  color:var(--pink);
+  padding:8px 12px;
+  border-radius:15px;
+  cursor:pointer;
+  font-weight:800;
+}
+
+.remove-btn:hover{
+  background:#ffe1ed;
+}
+
+/* EMPTY CART */
+
+.empty{
+  text-align:center;
+  padding:35px 10px;
+  color:#708078;
+}
+
+.empty-icon{
+  font-size:3rem;
+  margin-bottom:10px;
+}
+
+.shop-btn{
+  display:inline-block;
+  margin-top:15px;
+  background:var(--green);
+  color:#fff;
+  text-decoration:none;
+  padding:12px 22px;
+  border-radius:25px;
+  font-weight:800;
+}
+
+/* SUMMARY */
+
+.summary{
+  margin-top:25px;
+  padding:22px;
+  background:var(--mint);
+  border:1px solid var(--border);
+  border-radius:20px;
+}
+
+.summary-row{
+  display:flex;
+  justify-content:space-between;
+  gap:20px;
+  margin:10px 0;
+  color:#52635b;
+}
+
+.summary-row strong{
+  color:var(--green);
+}
+
+.discount-row{
+  color:var(--pink);
+  font-weight:800;
+}
+
+.total-row{
+  margin-top:17px;
+  padding-top:17px;
+  border-top:1px solid #cce5d7;
+  font-size:1.25rem;
+  font-weight:900;
+  color:var(--green);
+}
+
+.discount-message{
+  margin-top:15px;
+  padding:12px;
+  border-radius:12px;
+  background:#fff5d8;
+  color:#856200;
+  font-size:.86rem;
+  line-height:1.5;
+}
+
+/* CUSTOMER DETAILS */
+
+.customer-details{
+  margin-top:30px;
+}
+
+.customer-details h2{
+  color:var(--green);
+  font-size:1.25rem;
+}
+
+.form-group{
+  margin-bottom:17px;
+}
+
+.form-group label{
+  display:block;
+  margin-bottom:7px;
+  color:#405249;
+  font-weight:800;
+}
+
+.form-group input,
+.form-group textarea{
+  width:100%;
+  padding:13px;
+  border:1px solid #c8e3d3;
+  border-radius:12px;
+  outline:none;
+  font-family:inherit;
+  font-size:.95rem;
+}
+
+.form-group textarea{
+  min-height:90px;
+  resize:vertical;
+}
+
+.form-group input:focus,
+.form-group textarea:focus{
+  border-color:var(--green);
+  box-shadow:0 0 0 3px rgba(23,107,69,.09);
+}
+
+/* PAYMENT DETAILS */
+
+.payment-box{
+  margin-top:25px;
+  padding:20px;
+  border-radius:18px;
+  background:#faf7ff;
+  border:1px solid #e2d7f0;
+}
+
+.payment-box h3{
+  margin-top:0;
+  color:var(--purple);
+}
+
+.payment-box p{
+  margin:7px 0;
+  color:#5c5a67;
+}
+
+.account-number{
+  font-size:1.3rem;
+  font-weight:900;
+  color:var(--purple);
+  letter-spacing:1px;
+}
+
+/* CHECKOUT */
+
+.checkout-btn{
+  width:100%;
+  border:none;
+  margin-top:25px;
+  padding:15px;
+  border-radius:14px;
+  background:var(--green);
+  color:#fff;
+  font-size:1rem;
+  font-weight:900;
+  cursor:pointer;
+  transition:.25s;
+}
+
+.checkout-btn:hover{
+  background:var(--dark);
+  transform:translateY(-2px);
+}
+
+.whatsapp-note{
+  text-align:center;
+  color:#718078;
+  font-size:.8rem;
+  margin-top:10px;
+}
+
+/* TOAST */
+
+#toast{
+  position:fixed;
+  bottom:25px;
+  right:25px;
+  background:var(--green);
+  color:#fff;
+  padding:14px 20px;
+  border-radius:25px;
+  box-shadow:0 5px 18px rgba(0,0,0,.18);
+  font-weight:800;
+  opacity:0;
+  transform:translateY(30px);
+  transition:.35s;
+  z-index:1000;
+}
+
+#toast.show{
+  opacity:1;
+  transform:translateY(0);
+}
+
+/* MOBILE */
+
+@media(max-width:700px){
+
+  nav{
+    flex-direction:column;
+    padding:12px 4%;
+  }
+
+  nav a{
+    font-size:.82rem;
+    padding:7px 9px;
+  }
+
+  section{
+    width:94%;
+    padding:20px 15px;
+    margin:25px auto;
+  }
+
+  .cart-item{
+    grid-template-columns:1fr auto;
+    gap:10px;
+  }
+
+  .item-total{
+    text-align:left;
+  }
+
+  .remove-btn{
+    justify-self:start;
+  }
+
+  .summary-row{
+    font-size:.9rem;
+  }
+
 }
 </style>
+
 </head>
+
 <body>
 
+<!-- NAVIGATION -->
+
 <nav>
-  <strong>Apinkeade Sparkles</strong>
+
+  <div class="logo">
+    Apinkeade Multipurpose Liquid Soap
+  </div>
+
   <div>
     <a href="home.html">Home</a>
     <a href="products.html">Products</a>
-    <a href="cart.html">Cart</a>
+    <a href="cart.html" class="active">Cart</a>
     <a href="contact.html">Contact</a>
   </div>
+
 </nav>
 
 <section>
-  <h2>Your Cart</h2>
+
+  <h1>🛒 Your Cart</h1>
+
+  <p class="subtitle">
+    Review your order, enter your delivery details and proceed to WhatsApp.
+  </p>
+
+  <!-- CART ITEMS -->
+
   <div id="cartItems"></div>
-  <h3 id="total"></h3>
-  <button onclick="checkout()">Proceed to Payment</button>
+
+  <!-- ORDER SUMMARY -->
+
+  <div id="summary" class="summary" style="display:none;">
+
+```
+<div class="summary-row">
+  <span>Subtotal</span>
+  <strong id="subtotal">₦0</strong>
+</div>
+
+<div class="summary-row discount-row" id="discountRow" style="display:none;">
+  <span>5% Large Bottle Discount</span>
+  <strong id="discount">-₦0</strong>
+</div>
+
+<div class="summary-row total-row">
+  <span>Total to Pay</span>
+  <strong id="total">₦0</strong>
+</div>
+
+<div id="discountMessage" class="discount-message" style="display:none;"></div>
+```
+
+  </div>
+
+  <!-- CUSTOMER DETAILS -->
+
+  <div id="checkoutArea" style="display:none;" class="customer-details">
+
+```
+<h2>📦 Delivery Details</h2>
+
+<div class="form-group">
+
+  <label for="customerName">
+    Full Name
+  </label>
+
+  <input
+    type="text"
+    id="customerName"
+    placeholder="Enter your full name"
+    autocomplete="name"
+  >
+
+</div>
+
+
+<div class="form-group">
+
+  <label for="customerPhone">
+    Phone Number
+  </label>
+
+  <input
+    type="tel"
+    id="customerPhone"
+    placeholder="Enter your phone number"
+    autocomplete="tel"
+  >
+
+</div>
+
+
+<div class="form-group">
+
+  <label for="customerAddress">
+    Delivery Address
+  </label>
+
+  <textarea
+    id="customerAddress"
+    placeholder="Enter your complete delivery address"
+    autocomplete="street-address"
+  ></textarea>
+
+</div>
+
+
+<!-- PAYMENT INFORMATION -->
+
+<div class="payment-box">
+
+  <h3>💳 Payment Information</h3>
+
+  <p>
+    After payment, please Proceed to whatsapp to send the screenshot of your payment:
+  </p>
+
+  <p>
+    <strong>Bank/Wallet:</strong> OPay
+  </p>
+
+  <p>
+    <strong>Account Number:</strong>
+    <span class="account-number">7033416441</span>
+  </p>
+
+  <p>
+    <strong>Account Name:</strong>
+    Akinlade Oluwadamilola Anuoluwapo
+  </p>
+
+  <p style="font-size:.82rem;margin-top:12px;">
+    Please confirm the payment details before making your transfer.
+  </p>
+
+</div>
+
+
+<!-- CHECKOUT BUTTON -->
+
+<button
+  class="checkout-btn"
+  onclick="checkout()">
+
+  💬 Proceed to Payment via WhatsApp
+
+</button>
+
+<p class="whatsapp-note">
+  Your order details will be sent to Apinkeade on WhatsApp.
+</p>
+```
+
+  </div>
+
 </section>
 
+<div id="toast"></div>
+
 <script>
-// Load cart from localStorage
+
+/* ============================================
+   CART
+============================================ */
+
 let cart = JSON.parse(localStorage.getItem("cart")) || [];
-let cartDiv = document.getElementById("cartItems");
 
-function displayCart() {
-  cartDiv.innerHTML = '';
-  let total = 0;
+const cartDiv = document.getElementById("cartItems");
+const summary = document.getElementById("summary");
+const checkoutArea = document.getElementById("checkoutArea");
 
-  cart.forEach((item, index) => {
-    total += item.price * item.quantity;
-    cartDiv.innerHTML += `
-      <div class="cart-item">
-        <span>${item.name}</span>
-        <input type="number" min="1" value="${item.quantity}" class="quantity-input" onchange="updateQuantity(${index}, this.value)">
-        <span>₦${item.price * item.quantity}</span>
-        <button onclick="removeItem(${index})">Remove</button>
-      </div>`;
-  });
 
-  document.getElementById("total").innerText = "Total: ₦" + total;
-}
+/*
+   Larger bottles eligible for the 5% discount.
 
-// Add quantity property if not exists
+   Discount applies when the customer has
+   MORE THAN 2 of these bottles in total.
+*/
+
+const largeBottleSizes = [
+  "1L",
+  "1 Litre",
+  "1 Litre Liquid Soap",
+  "2.5L",
+  "2.5 Litres",
+  "2.5 Litres Liquid Soap",
+  "5L",
+  "5 Litres",
+  "5 Litres Liquid Soap",
+  "10L",
+  "10 Litres",
+  "10 Litres Liquid Soap",
+  "25L",
+  "25 Litres",
+  "25 Litres Liquid Soap"
+];
+
+
+/* Add quantity if missing */
+
 cart = cart.map(item => {
-  if(!item.quantity) item.quantity = 1;
+
+  if(!item.quantity || item.quantity < 1){
+    item.quantity = 1;
+  }
+
   return item;
+
 });
 
-displayCart();
 
-// Update quantity
-function updateQuantity(index, value) {
-  cart[index].quantity = parseInt(value);
-  localStorage.setItem("cart", JSON.stringify(cart));
-  displayCart();
+/* ============================================
+   CHECK WHETHER PRODUCT IS A LARGE BOTTLE
+============================================ */
+
+function isLargeBottle(item){
+
+  const name = String(item.name || "").toLowerCase();
+
+  return largeBottleSizes.some(size =>
+    name.includes(size.toLowerCase())
+  );
+
 }
 
-// Remove item
-function removeItem(index) {
-  cart.splice(index, 1);
-  localStorage.setItem("cart", JSON.stringify(cart));
-  displayCart();
+
+/* ============================================
+   CALCULATE LARGE BOTTLE QUANTITY
+============================================ */
+
+function getLargeBottleQuantity(){
+
+  let quantity = 0;
+
+  cart.forEach(item => {
+
+    if(isLargeBottle(item)){
+      quantity += Number(item.quantity);
+    }
+
+  });
+
+  return quantity;
+
 }
 
-// WhatsApp checkout
-function checkout(){
+
+/* ============================================
+   DISPLAY CART
+============================================ */
+
+function displayCart(){
+
+  cartDiv.innerHTML = "";
+
   if(cart.length === 0){
-    alert("Your cart is empty!");
+
+    cartDiv.innerHTML = `
+
+      <div class="empty">
+
+        <div class="empty-icon">🛒</div>
+
+        <h3>Your cart is empty</h3>
+
+        <p>
+          You haven't added any products yet.
+        </p>
+
+        <a href="products.html" class="shop-btn">
+          Shop Products
+        </a>
+
+      </div>
+
+    `;
+
+    summary.style.display = "none";
+    checkoutArea.style.display = "none";
+
     return;
   }
 
-  let message = "Hello Apinkeade Sparkles, I want to order:%0A";
 
-  cart.forEach(item => {
-    message += `- ${item.name} x${item.quantity} ₦${item.price * item.quantity}%0A`;
+  let subtotal = 0;
+
+
+  cart.forEach((item,index) => {
+
+    const itemTotal =
+      Number(item.price) * Number(item.quantity);
+
+    subtotal += itemTotal;
+
+
+    cartDiv.innerHTML += `
+
+      <div class="cart-item">
+
+        <div>
+
+          <div class="item-name">
+            ${item.name}
+          </div>
+
+          <div class="item-price">
+            ₦${Number(item.price).toLocaleString()} each
+          </div>
+
+        </div>
+
+
+        <div class="quantity-area">
+
+          <button
+            class="qty-btn"
+            onclick="changeQuantity(${index}, -1)">
+            −
+          </button>
+
+          <input
+            type="number"
+            min="1"
+            value="${item.quantity}"
+            class="quantity-input"
+            onchange="updateQuantity(${index}, this.value)"
+          >
+
+          <button
+            class="qty-btn"
+            onclick="changeQuantity(${index}, 1)">
+            +
+          </button>
+
+        </div>
+
+
+        <div class="item-total">
+          ₦${itemTotal.toLocaleString()}
+        </div>
+
+
+        <button
+          class="remove-btn"
+          onclick="removeItem(${index})">
+
+          Remove
+
+        </button>
+
+      </div>
+
+    `;
+
   });
 
-  let total = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
-  message += `%0ATotal: ₦${total}`;
+
+  /* ============================================
+     DISCOUNT CALCULATION
+  ============================================ */
+
+  const largeBottleQuantity =
+    getLargeBottleQuantity();
 
 
-  window.open("https://wa.me/2347033416441?text=" + message, "_blank");
+  let discount = 0;
+
+
+  if(largeBottleQuantity > 2){
+
+    discount = subtotal * 0.05;
+
+  }
+
+
+  const total = subtotal - discount;
+
+
+  /* Summary */
+
+  summary.style.display = "block";
+  checkoutArea.style.display = "block";
+
+
+  document.getElementById("subtotal").innerText =
+    "₦" + subtotal.toLocaleString();
+
+
+  document.getElementById("total").innerText =
+    "₦" + total.toLocaleString();
+
+
+  const discountRow =
+    document.getElementById("discountRow");
+
+  const discountMessage =
+    document.getElementById("discountMessage");
+
+
+  if(discount > 0){
+
+    discountRow.style.display = "flex";
+
+    document.getElementById("discount").innerText =
+      "-₦" + discount.toLocaleString();
+
+
+    discountMessage.style.display = "block";
+
+    discountMessage.innerHTML = `
+      🎉 <strong>5% discount applied!</strong>
+      You have ${largeBottleQuantity} larger bottles in your cart.
+    `;
+
+  }else{
+
+    discountRow.style.display = "none";
+
+    discountMessage.style.display = "block";
+
+    if(largeBottleQuantity > 0){
+
+      const remaining = 3 - largeBottleQuantity;
+
+      discountMessage.innerHTML = `
+        💡 Add ${remaining} more large bottle${remaining > 1 ? "s" : ""}
+        to qualify for the 5% bulk discount.
+      `;
+
+    }else{
+
+      discountMessage.style.display = "none";
+
+    }
+
+  }
+
 }
+
+
+/* ============================================
+   CHANGE QUANTITY WITH + / -
+============================================ */
+
+function changeQuantity(index,change){
+
+  let newQuantity =
+    Number(cart[index].quantity) + change;
+
+
+  if(newQuantity < 1){
+    newQuantity = 1;
+  }
+
+
+  cart[index].quantity = newQuantity;
+
+  saveCart();
+
+  displayCart();
+
+}
+
+
+/* ============================================
+   UPDATE QUANTITY INPUT
+============================================ */
+
+function updateQuantity(index,value){
+
+  let quantity = parseInt(value);
+
+
+  if(isNaN(quantity) || quantity < 1){
+    quantity = 1;
+  }
+
+
+  cart[index].quantity = quantity;
+
+  saveCart();
+
+  displayCart();
+
+}
+
+
+/* ============================================
+   REMOVE ITEM
+============================================ */
+
+function removeItem(index){
+
+  cart.splice(index,1);
+
+  saveCart();
+
+  displayCart();
+
+  showToast("Product removed from cart");
+
+}
+
+
+/* ============================================
+   SAVE CART
+============================================ */
+
+function saveCart(){
+
+  localStorage.setItem(
+    "cart",
+    JSON.stringify(cart)
+  );
+
+}
+
+
+/* ============================================
+   FORMAT CURRENCY
+============================================ */
+
+function formatMoney(amount){
+
+  return "₦" + Number(amount).toLocaleString();
+
+}
+
+
+/* ============================================
+   CHECKOUT
+============================================ */
+
+function checkout(){
+
+  if(cart.length === 0){
+
+    alert("Your cart is empty!");
+
+    return;
+
+  }
+
+
+  const customerName =
+    document.getElementById("customerName")
+      .value.trim();
+
+
+  const customerPhone =
+    document.getElementById("customerPhone")
+      .value.trim();
+
+
+  const customerAddress =
+    document.getElementById("customerAddress")
+      .value.trim();
+
+
+  /* Validate customer details */
+
+  if(!customerName){
+
+    alert("Please enter your full name.");
+
+    document.getElementById("customerName").focus();
+
+    return;
+
+  }
+
+
+  if(!customerPhone){
+
+    alert("Please enter your phone number.");
+
+    document.getElementById("customerPhone").focus();
+
+    return;
+
+  }
+
+
+  if(!customerAddress){
+
+    alert("Please enter your delivery address.");
+
+    document.getElementById("customerAddress").focus();
+
+    return;
+
+  }
+
+
+  /* Calculate order */
+
+  let subtotal = 0;
+
+
+  cart.forEach(item => {
+
+    subtotal +=
+      Number(item.price) * Number(item.quantity);
+
+  });
+
+
+  const largeBottleQuantity =
+    getLargeBottleQuantity();
+
+
+  let discount = 0;
+
+
+  if(largeBottleQuantity > 2){
+
+    discount = subtotal * 0.05;
+
+  }
+
+
+  const total = subtotal - discount;
+
+
+  /* ============================================
+     BUILD WHATSAPP MESSAGE
+  ============================================ */
+
+  let message =
+    "Hello Apinkeade Multipurpose Liquid Soap,%0A%0A" +
+
+    "I would like to place an order.%0A%0A" +
+
+    "CUSTOMER DETAILS%0A" +
+
+    "Name: " +
+    encodeURIComponent(customerName) +
+    "%0A" +
+
+    "Phone: " +
+    encodeURIComponent(customerPhone) +
+    "%0A" +
+
+    "Delivery Address: " +
+    encodeURIComponent(customerAddress) +
+    "%0A%0A" +
+
+    "ORDER DETAILS%0A";
+
+
+  cart.forEach(item => {
+
+    const itemTotal =
+      Number(item.price) * Number(item.quantity);
+
+
+    message +=
+
+      "- " +
+      encodeURIComponent(item.name) +
+
+      " x" +
+      item.quantity +
+
+      " = " +
+      encodeURIComponent(formatMoney(itemTotal)) +
+
+      "%0A";
+
+  });
+
+
+  message +=
+
+    "%0ASubtotal: " +
+    encodeURIComponent(formatMoney(subtotal)) +
+
+    "%0A";
+
+
+  if(discount > 0){
+
+    message +=
+
+      "5% Large Bottle Discount: -" +
+      encodeURIComponent(formatMoney(discount)) +
+
+      "%0A";
+
+  }
+
+
+  message +=
+
+    "TOTAL TO PAY: " +
+    encodeURIComponent(formatMoney(total)) +
+
+    "%0A%0A" +
+
+    "PAYMENT DETAILS%0A" +
+
+    "OPay%0A" +
+
+    "Account Number: 7033416441%0A" +
+
+    "Account Name: Akinlade Oluwadamilola Anuoluwapo%0A%0A" +
+
+    "Please confirm my order and payment details. Thank you!";
+
+
+  /* WhatsApp */
+
+  const whatsappURL =
+    "https://wa.me/2347033416441?text=" +
+    message;
+
+
+  window.open(
+    whatsappURL,
+    "_blank"
+  );
+
+}
+
+
+/* ============================================
+   TOAST
+============================================ */
+
+function showToast(message){
+
+  const toast =
+    document.getElementById("toast");
+
+  toast.innerText = message;
+
+  toast.classList.add("show");
+
+
+  setTimeout(() => {
+
+    toast.classList.remove("show");
+
+  },2500);
+
+}
+
+
+/* ============================================
+   START
+============================================ */
+
+displayCart();
+
 </script>
 
 </body>
