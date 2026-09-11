@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Products - Apinkeade Sparkles Multipurpose Liquid Soap</title>
+
 <style>
 :root{
   --green:#176b45;
@@ -15,62 +16,371 @@
   --text:#26352e;
   --border:#d9eee2;
 }
-*{box-sizing:border-box}
-body{margin:0;font-family:"Segoe UI",Arial,sans-serif;background:linear-gradient(#f7fff9,#eef8f2);color:var(--text)}
-nav{position:sticky;top:0;z-index:100;display:flex;justify-content:space-between;align-items:center;gap:18px;padding:14px 6%;background:var(--green);color:#fff;box-shadow:0 4px 18px rgba(0,0,0,.12)}
-.logo{font-size:1.12rem;font-weight:900}
-nav div{display:flex;flex-wrap:wrap;gap:5px}
-nav a{color:#fff;text-decoration:none;font-weight:700;padding:8px 12px;border-radius:20px}
-nav a:hover,nav a.active{background:rgba(255,255,255,.16)}
-.hero{text-align:center;padding:52px 18px 40px;background:radial-gradient(circle at 15% 25%,#fff 0 7%,transparent 8%),linear-gradient(135deg,#f9fffb,#e2f5e9)}
-.badge{display:inline-block;background:#fff;border:1px solid var(--border);color:var(--green);font-size:.82rem;font-weight:900;padding:8px 15px;border-radius:30px}
-.hero h1{margin:13px 0 8px;color:var(--green);font-size:clamp(2rem,5vw,3.1rem)}
-.hero p{max-width:700px;margin:auto;color:#5f7569;line-height:1.6}
-section{width:min(1180px,92%);margin:auto;padding:42px 0}
-.section-title{text-align:center;margin-bottom:27px}
-.section-title h2{margin:0 0 7px;color:var(--green);font-size:1.8rem}
-.section-title p{margin:0;color:#6c7d74}
-.products{display:grid;grid-template-columns:repeat(auto-fit,minmax(235px,1fr));gap:22px}
-.card{background:#fff;border:1px solid var(--border);border-radius:21px;padding:17px;box-shadow:0 7px 25px rgba(23,107,69,.10);text-align:center;transition:.25s}
-.card:hover{transform:translateY(-5px);box-shadow:0 13px 30px rgba(23,107,69,.16)}
-.card img{width:100%;height:165px;object-fit:cover;border-radius:16px;background:var(--mint)}
-.card h3{color:var(--green);margin:15px 0 7px}
-.price{font-size:1.2rem;font-weight:900;color:var(--green);margin:0 0 8px}
-.bulk-note{font-size:.84rem;color:#66786e;line-height:1.55;margin:0 0 13px}
-.bulk-note b{color:var(--pink)}
-.quantity-row{display:flex;align-items:center;justify-content:center;gap:8px;margin:10px 0 2px}
-.qty-btn{width:38px;height:38px;padding:0;margin:0;border-radius:50%;font-size:1.35rem;line-height:1;background:var(--green);display:flex;align-items:center;justify-content:center}
-.qty-btn:hover{background:var(--dark);transform:none}
-.quantity-input{width:65px;height:38px;padding:7px;border:1px solid #a8d5ba;border-radius:10px;text-align:center;font-weight:800;font-size:1rem;outline:none}
-.quantity-input:focus{border-color:var(--green);box-shadow:0 0 0 3px rgba(23,107,69,.10)}
-/* Keep native spinner arrows visible as requested */
-.quantity-input::-webkit-inner-spin-button,.quantity-input::-webkit-outer-spin-button{opacity:1}
-button.add{display:block;width:100%;background:var(--green);color:#fff;border:0;padding:12px 18px;border-radius:12px;cursor:pointer;margin-top:12px;font-weight:800;font-size:.95rem}
-button.add:hover{background:var(--dark)}
-.large-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:18px}
-.large-price{background:#fff;border:1px solid var(--border);border-radius:20px;padding:20px 17px;text-align:center;box-shadow:0 6px 20px rgba(23,107,69,.08)}
-.large-price .size{display:block;color:#61736a;font-weight:700;margin-bottom:7px}
-.large-price strong{display:block;color:var(--green);font-size:1.35rem}
-.large-price .discount{display:inline-block;margin-top:7px;padding:4px 9px;border-radius:15px;background:#fff5d8;color:#956b00;font-size:.76rem;font-weight:800}
-.large-price .quantity-row{margin-top:14px}
-.info{margin-top:25px;padding:22px;border-radius:20px;background:var(--mint);border:1px solid var(--border);text-align:center;line-height:1.65}
-.info strong{color:var(--green)}
-#toast{position:fixed;bottom:25px;right:25px;background:var(--green);color:#fff;padding:14px 20px;border-radius:25px;box-shadow:0 5px 18px rgba(0,0,0,.18);font-weight:800;opacity:0;transform:translateY(30px);transition:.35s;z-index:1000}
-#toast.show{opacity:1;transform:translateY(0)}
+
+*{
+  box-sizing:border-box;
+}
+
+body{
+  margin:0;
+  font-family:"Segoe UI",Arial,sans-serif;
+  background:linear-gradient(#f7fff9,#eef8f2);
+  color:var(--text);
+}
+
+nav{
+  position:sticky;
+  top:0;
+  z-index:100;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:18px;
+  padding:14px 6%;
+  background:var(--green);
+  color:#fff;
+  box-shadow:0 4px 18px rgba(0,0,0,.12);
+}
+
+.logo{
+  font-size:1.12rem;
+  font-weight:900;
+}
+
+nav div{
+  display:flex;
+  flex-wrap:wrap;
+  gap:5px;
+}
+
+nav a{
+  color:#fff;
+  text-decoration:none;
+  font-weight:700;
+  padding:8px 12px;
+  border-radius:20px;
+}
+
+nav a:hover,
+nav a.active{
+  background:rgba(255,255,255,.16);
+}
+
+.hero{
+  text-align:center;
+  padding:52px 18px 40px;
+  background:
+    radial-gradient(circle at 15% 25%,#fff 0 7%,transparent 8%),
+    linear-gradient(135deg,#f9fffb,#e2f5e9);
+}
+
+.badge{
+  display:inline-block;
+  background:#fff;
+  border:1px solid var(--border);
+  color:var(--green);
+  font-size:.82rem;
+  font-weight:900;
+  padding:8px 15px;
+  border-radius:30px;
+}
+
+.hero h1{
+  margin:13px 0 8px;
+  color:var(--green);
+  font-size:clamp(2rem,5vw,3.1rem);
+}
+
+.hero p{
+  max-width:700px;
+  margin:auto;
+  color:#5f7569;
+  line-height:1.6;
+}
+
+section{
+  width:min(1180px,92%);
+  margin:auto;
+  padding:42px 0;
+}
+
+.section-title{
+  text-align:center;
+  margin-bottom:27px;
+}
+
+.section-title h2{
+  margin:0 0 7px;
+  color:var(--green);
+  font-size:1.8rem;
+}
+
+.section-title p{
+  margin:0;
+  color:#6c7d74;
+}
+
+.products{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(235px,1fr));
+  gap:22px;
+}
+
+.card{
+  background:#fff;
+  border:1px solid var(--border);
+  border-radius:21px;
+  padding:17px;
+  box-shadow:0 7px 25px rgba(23,107,69,.10);
+  text-align:center;
+  transition:.25s;
+}
+
+.card:hover{
+  transform:translateY(-5px);
+  box-shadow:0 13px 30px rgba(23,107,69,.16);
+}
+
+.card img{
+  width:100%;
+  height:165px;
+  object-fit:contain;
+  border-radius:16px;
+  background:var(--mint);
+  padding:8px;
+}
+
+.card h3{
+  color:var(--green);
+  margin:15px 0 7px;
+}
+
+.price{
+  font-size:1.2rem;
+  font-weight:900;
+  color:var(--green);
+  margin:0 0 8px;
+}
+
+.bulk-note{
+  font-size:.84rem;
+  color:#66786e;
+  line-height:1.55;
+  margin:0 0 13px;
+}
+
+.bulk-note b{
+  color:var(--pink);
+}
+
+.quantity-row{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  margin:10px 0 2px;
+}
+
+.qty-btn{
+  width:38px;
+  height:38px;
+  padding:0;
+  margin:0;
+  border-radius:50%;
+  font-size:1.35rem;
+  line-height:1;
+  background:var(--green);
+  color:#fff;
+  border:0;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  cursor:pointer;
+}
+
+.qty-btn:hover{
+  background:var(--dark);
+  transform:none;
+}
+
+.quantity-input{
+  width:65px;
+  height:38px;
+  padding:7px;
+  border:1px solid #a8d5ba;
+  border-radius:10px;
+  text-align:center;
+  font-weight:800;
+  font-size:1rem;
+  outline:none;
+}
+
+.quantity-input:focus{
+  border-color:var(--green);
+  box-shadow:0 0 0 3px rgba(23,107,69,.10);
+}
+
+/* Keep native spinner arrows visible */
+.quantity-input::-webkit-inner-spin-button,
+.quantity-input::-webkit-outer-spin-button{
+  opacity:1;
+}
+
+button.add{
+  display:block;
+  width:100%;
+  background:var(--green);
+  color:#fff;
+  border:0;
+  padding:12px 18px;
+  border-radius:12px;
+  cursor:pointer;
+  margin-top:12px;
+  font-weight:800;
+  font-size:.95rem;
+}
+
+button.add:hover{
+  background:var(--dark);
+}
+
+/* LARGE PRODUCTS */
+.large-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(210px,1fr));
+  gap:18px;
+}
+
+.large-price{
+  background:#fff;
+  border:1px solid var(--border);
+  border-radius:20px;
+  padding:17px;
+  text-align:center;
+  box-shadow:0 6px 20px rgba(23,107,69,.08);
+  transition:.25s;
+}
+
+.large-price:hover{
+  transform:translateY(-5px);
+  box-shadow:0 12px 28px rgba(23,107,69,.14);
+}
+
+/* Images for all large bottles */
+.large-price img{
+  width:100%;
+  height:180px;
+  object-fit:contain;
+  border-radius:16px;
+  background:var(--mint);
+  padding:8px;
+  margin-bottom:15px;
+}
+
+.large-price .size{
+  display:block;
+  color:#61736a;
+  font-weight:700;
+  margin-bottom:7px;
+}
+
+.large-price strong{
+  display:block;
+  color:var(--green);
+  font-size:1.35rem;
+}
+
+.large-price .discount{
+  display:inline-block;
+  margin-top:7px;
+  padding:4px 9px;
+  border-radius:15px;
+  background:#fff5d8;
+  color:#956b00;
+  font-size:.76rem;
+  font-weight:800;
+}
+
+.large-price .quantity-row{
+  margin-top:14px;
+}
+
+.info{
+  margin-top:25px;
+  padding:22px;
+  border-radius:20px;
+  background:var(--mint);
+  border:1px solid var(--border);
+  text-align:center;
+  line-height:1.65;
+}
+
+.info strong{
+  color:var(--green);
+}
+
+#toast{
+  position:fixed;
+  bottom:25px;
+  right:25px;
+  background:var(--green);
+  color:#fff;
+  padding:14px 20px;
+  border-radius:25px;
+  box-shadow:0 5px 18px rgba(0,0,0,.18);
+  font-weight:800;
+  opacity:0;
+  transform:translateY(30px);
+  transition:.35s;
+  z-index:1000;
+}
+
+#toast.show{
+  opacity:1;
+  transform:translateY(0);
+}
+
 @media(max-width:650px){
- nav{flex-direction:column;padding:12px 4%}
- nav div{justify-content:center}
- nav a{font-size:.86rem;padding:7px 9px}
- section{width:94%;padding:32px 0}
- .hero{padding:40px 16px 32px}
- .card img{height:150px}
+
+  nav{
+    flex-direction:column;
+    padding:12px 4%;
+  }
+
+  nav div{
+    justify-content:center;
+  }
+
+  nav a{
+    font-size:.86rem;
+    padding:7px 9px;
+  }
+
+  section{
+    width:94%;
+    padding:32px 0;
+  }
+
+  .hero{
+    padding:40px 16px 32px;
+  }
+
+  .card img{
+    height:150px;
+  }
+
+  .large-price img{
+    height:165px;
+  }
 }
 </style>
 </head>
+
 <body>
 
 <nav>
   <div class="logo">Apinkeade Sparkles</div>
+
   <div>
     <a href="home.html">Home</a>
     <a href="products.html" class="active">Products</a>
@@ -79,233 +389,823 @@ button.add:hover{background:var(--dark)}
   </div>
 </nav>
 
+
 <header class="hero">
+
   <span class="badge">✨ MULTIPURPOSE LIQUID SOAP</span>
+
   <h1>Clean Homes • Fresh Spaces • Happy You!</h1>
-  <p>Quality cleaning soap for laundry, dishes, surfaces, bathrooms and everyday cleaning. Available in different sizes for personal, business, souvenir and bulk orders.</p>
+
+  <p>
+    Quality cleaning soap for laundry, dishes, surfaces, bathrooms and everyday
+    cleaning. Available in different sizes for personal, business, souvenir and
+    bulk orders.
+  </p>
+
 </header>
 
+
+<!-- SMALL & MEDIUM PRODUCTS -->
+
 <section>
+
   <div class="section-title">
+
     <h2>Small & Medium Bottle Sizes</h2>
-    <p>Use the <b>− / +</b> buttons or the visible number arrows to choose how many you want.</p>
+
+    <p>
+      Use the <b>− / +</b> buttons or the visible number arrows to choose how many you want.
+    </p>
+
   </div>
+
 
   <div class="products">
 
+
+    <!-- 100ML -->
+
     <div class="card">
-      <img src="https://dummyimage.com/600x400/e9f7ef/176b45&text=100ml" alt="100ml Liquid Soap">
+
+      <img
+        src="./image/100ml.png"
+        alt="100ml Liquid Soap"
+      >
+
       <h3>100ml Liquid Soap</h3>
+
       <p class="price">₦400 per piece</p>
-      <p class="bulk-note"><b>50 pcs:</b> ₦17,000 &nbsp;•&nbsp; <b>100 pcs:</b> ₦34,000</p>
+
+      <p class="bulk-note">
+        <b>50 pcs:</b> ₦17,000
+        &nbsp;•&nbsp;
+        <b>100 pcs:</b> ₦34,000
+      </p>
+
       <div class="quantity-row">
-        <button class="qty-btn" onclick="changeQty('q0',-1)">−</button>
-        <input type="number" min="1" max="1000" value="1" class="quantity-input" id="q0">
-        <button class="qty-btn" onclick="changeQty('q0',1)">+</button>
+
+        <button
+          class="qty-btn"
+          onclick="changeQty('q0',-1)"
+        >−</button>
+
+        <input
+          type="number"
+          min="1"
+          max="1000"
+          value="1"
+          class="quantity-input"
+          id="q0"
+        >
+
+        <button
+          class="qty-btn"
+          onclick="changeQty('q0',1)"
+        >+</button>
+
       </div>
-      <button class="add" onclick="addToCart('100ml Liquid Soap',400,'q0')">🛒 Add to Cart</button>
+
+      <button
+        class="add"
+        onclick="addToCart('100ml Liquid Soap',400,'q0')"
+      >
+        🛒 Add to Cart
+      </button>
+
     </div>
 
+
+    <!-- 150ML -->
+
     <div class="card">
-      <img src="https://dummyimage.com/600x400/e9f7ef/176b45&text=150ml" alt="150ml Liquid Soap">
+
+      <img
+        src="./image/150ml.png"
+        alt="150ml Liquid Soap"
+      >
+
       <h3>150ml Liquid Soap</h3>
+
       <p class="price">₦500 per piece</p>
-      <p class="bulk-note"><b>50 pcs:</b> ₦25,000 &nbsp;•&nbsp; <b>100 pcs:</b> ₦46,000</p>
+
+      <p class="bulk-note">
+        <b>50 pcs:</b> ₦25,000
+        &nbsp;•&nbsp;
+        <b>100 pcs:</b> ₦46,000
+      </p>
+
       <div class="quantity-row">
-        <button class="qty-btn" onclick="changeQty('q1',-1)">−</button>
-        <input type="number" min="1" max="1000" value="1" class="quantity-input" id="q1">
-        <button class="qty-btn" onclick="changeQty('q1',1)">+</button>
+
+        <button
+          class="qty-btn"
+          onclick="changeQty('q1',-1)"
+        >−</button>
+
+        <input
+          type="number"
+          min="1"
+          max="1000"
+          value="1"
+          class="quantity-input"
+          id="q1"
+        >
+
+        <button
+          class="qty-btn"
+          onclick="changeQty('q1',1)"
+        >+</button>
+
       </div>
-      <button class="add" onclick="addToCart('150ml Liquid Soap',500,'q1')">🛒 Add to Cart</button>
+
+      <button
+        class="add"
+        onclick="addToCart('150ml Liquid Soap',500,'q1')"
+      >
+        🛒 Add to Cart
+      </button>
+
     </div>
 
+
+    <!-- 250ML -->
+
     <div class="card">
-      <img src="https://dummyimage.com/600x400/e9f7ef/176b45&text=250ml" alt="250ml Liquid Soap">
+
+      <img
+        src="./image/250ml.png"
+        alt="250ml Liquid Soap"
+      >
+
       <h3>250ml Liquid Soap</h3>
+
       <p class="price">₦600 per piece</p>
-      <p class="bulk-note"><b>50 pcs:</b> ₦28,000 &nbsp;•&nbsp; <b>100 pcs:</b> ₦53,000</p>
+
+      <p class="bulk-note">
+        <b>50 pcs:</b> ₦28,000
+        &nbsp;•&nbsp;
+        <b>100 pcs:</b> ₦53,000
+      </p>
+
       <div class="quantity-row">
-        <button class="qty-btn" onclick="changeQty('q2',-1)">−</button>
-        <input type="number" min="1" max="1000" value="1" class="quantity-input" id="q2">
-        <button class="qty-btn" onclick="changeQty('q2',1)">+</button>
+
+        <button
+          class="qty-btn"
+          onclick="changeQty('q2',-1)"
+        >−</button>
+
+        <input
+          type="number"
+          min="1"
+          max="1000"
+          value="1"
+          class="quantity-input"
+          id="q2"
+        >
+
+        <button
+          class="qty-btn"
+          onclick="changeQty('q2',1)"
+        >+</button>
+
       </div>
-      <button class="add" onclick="addToCart('250ml Liquid Soap',600,'q2')">🛒 Add to Cart</button>
+
+      <button
+        class="add"
+        onclick="addToCart('250ml Liquid Soap',600,'q2')"
+      >
+        🛒 Add to Cart
+      </button>
+
     </div>
 
+
+    <!-- 300ML -->
+
     <div class="card">
-      <img src="https://dummyimage.com/600x400/e9f7ef/176b45&text=300ml" alt="300ml Liquid Soap">
+
+      <img
+        src="./image/300ml.png"
+        alt="300ml Liquid Soap"
+      >
+
       <h3>300ml Liquid Soap</h3>
+
       <p class="price">₦800 per piece</p>
-      <p class="bulk-note"><b>50 pcs:</b> ₦35,000 &nbsp;•&nbsp; <b>100 pcs:</b> ₦68,000</p>
+
+      <p class="bulk-note">
+        <b>50 pcs:</b> ₦35,000
+        &nbsp;•&nbsp;
+        <b>100 pcs:</b> ₦68,000
+      </p>
+
       <div class="quantity-row">
-        <button class="qty-btn" onclick="changeQty('q3',-1)">−</button>
-        <input type="number" min="1" max="1000" value="1" class="quantity-input" id="q3">
-        <button class="qty-btn" onclick="changeQty('q3',1)">+</button>
+
+        <button
+          class="qty-btn"
+          onclick="changeQty('q3',-1)"
+        >−</button>
+
+        <input
+          type="number"
+          min="1"
+          max="1000"
+          value="1"
+          class="quantity-input"
+          id="q3"
+        >
+
+        <button
+          class="qty-btn"
+          onclick="changeQty('q3',1)"
+        >+</button>
+
       </div>
-      <button class="add" onclick="addToCart('300ml Liquid Soap',800,'q3')">🛒 Add to Cart</button>
+
+      <button
+        class="add"
+        onclick="addToCart('300ml Liquid Soap',800,'q3')"
+      >
+        🛒 Add to Cart
+      </button>
+
     </div>
 
+
+    <!-- 500ML -->
+
     <div class="card">
-      <img src="https://dummyimage.com/600x400/e9f7ef/176b45&text=500ml" alt="500ml Liquid Soap">
+
+      <img
+        src="./image/500ml.png"
+        alt="500ml Liquid Soap"
+      >
+
       <h3>500ml Liquid Soap</h3>
+
       <p class="price">₦1,000 per piece</p>
-      <p class="bulk-note"><b>50 pcs:</b> ₦47,000 &nbsp;•&nbsp; <b>100 pcs:</b> ₦90,000</p>
+
+      <p class="bulk-note">
+        <b>50 pcs:</b> ₦47,000
+        &nbsp;•&nbsp;
+        <b>100 pcs:</b> ₦90,000
+      </p>
+
       <div class="quantity-row">
-        <button class="qty-btn" onclick="changeQty('q4',-1)">−</button>
-        <input type="number" min="1" max="1000" value="1" class="quantity-input" id="q4">
-        <button class="qty-btn" onclick="changeQty('q4',1)">+</button>
+
+        <button
+          class="qty-btn"
+          onclick="changeQty('q4',-1)"
+        >−</button>
+
+        <input
+          type="number"
+          min="1"
+          max="1000"
+          value="1"
+          class="quantity-input"
+          id="q4"
+        >
+
+        <button
+          class="qty-btn"
+          onclick="changeQty('q4',1)"
+        >+</button>
+
       </div>
-      <button class="add" onclick="addToCart('500ml Liquid Soap',1000,'q4')">🛒 Add to Cart</button>
+
+      <button
+        class="add"
+        onclick="addToCart('500ml Liquid Soap',1000,'q4')"
+      >
+        🛒 Add to Cart
+      </button>
+
     </div>
 
   </div>
+
 </section>
 
+
+<!-- LARGE PRODUCTS -->
+
 <section>
+
   <div class="section-title">
+
     <h2>🪣 Large Sizes</h2>
-    <p>Great for homes, offices, businesses, events and souvenir orders.</p>
+
+    <p>
+      Great for homes, offices, businesses, events and souvenir orders.
+    </p>
+
   </div>
+
 
   <div class="large-grid">
 
-    <div class="large-price">
-      <span class="size">1 Litre</span><strong>₦1,800</strong>
-      <span class="discount">5% off when buying more than 1</span>
-      <div class="quantity-row">
-        <button class="qty-btn" onclick="changeQty('q5',-1)">−</button>
-        <input type="number" min="1" max="500" value="1" class="quantity-input" id="q5">
-        <button class="qty-btn" onclick="changeQty('q5',1)">+</button>
-      </div>
-      <button class="add" onclick="addLargeToCart('1 Litre Liquid Soap',1800,'q5')">🛒 Add to Cart</button>
-    </div>
+
+    <!-- 1 LITRE -->
 
     <div class="large-price">
-      <span class="size">2.5 Litres</span><strong>₦4,000</strong>
-      <span class="discount">5% off when buying more than 1</span>
+
+      <img
+        src="./image/1 liter.png"
+        alt="1 Litre Liquid Soap"
+      >
+
+      <span class="size">1 Litre</span>
+
+      <strong>₦1,800</strong>
+
+      <span class="discount">
+        5% off when buying more than 1
+      </span>
+
       <div class="quantity-row">
-        <button class="qty-btn" onclick="changeQty('q6',-1)">−</button>
-        <input type="number" min="1" max="500" value="1" class="quantity-input" id="q6">
-        <button class="qty-btn" onclick="changeQty('q6',1)">+</button>
+
+        <button
+          class="qty-btn"
+          onclick="changeQty('q5',-1)"
+        >−</button>
+
+        <input
+          type="number"
+          min="1"
+          max="500"
+          value="1"
+          class="quantity-input"
+          id="q5"
+        >
+
+        <button
+          class="qty-btn"
+          onclick="changeQty('q5',1)"
+        >+</button>
+
       </div>
-      <button class="add" onclick="addLargeToCart('2.5 Litres Liquid Soap',4000,'q6')">🛒 Add to Cart</button>
+
+      <button
+        class="add"
+        onclick="addLargeToCart('1 Litre Liquid Soap',1800,'q5')"
+      >
+        🛒 Add to Cart
+      </button>
+
     </div>
 
-    <div class="large-price">
-      <span class="size">5 Litres</span><strong>₦7,000</strong>
-      <span class="discount">5% off when buying more than 1</span>
-      <div class="quantity-row">
-        <button class="qty-btn" onclick="changeQty('q7',-1)">−</button>
-        <input type="number" min="1" max="500" value="1" class="quantity-input" id="q7">
-        <button class="qty-btn" onclick="changeQty('q7',1)">+</button>
-      </div>
-      <button class="add" onclick="addLargeToCart('5 Litres Liquid Soap',7000,'q7')">🛒 Add to Cart</button>
-    </div>
+
+    <!-- 2.5 LITRES -->
 
     <div class="large-price">
-      <span class="size">10 Litres</span><strong>₦12,000</strong>
-      <span class="discount">5% off when buying more than 1</span>
+
+      <img
+        src="./image/2.5 liters.png"
+        alt="2.5 Litres Liquid Soap"
+      >
+
+      <span class="size">2.5 Litres</span>
+
+      <strong>₦4,000</strong>
+
+      <span class="discount">
+        5% off when buying more than 1
+      </span>
+
       <div class="quantity-row">
-        <button class="qty-btn" onclick="changeQty('q8',-1)">−</button>
-        <input type="number" min="1" max="500" value="1" class="quantity-input" id="q8">
-        <button class="qty-btn" onclick="changeQty('q8',1)">+</button>
+
+        <button
+          class="qty-btn"
+          onclick="changeQty('q6',-1)"
+        >−</button>
+
+        <input
+          type="number"
+          min="1"
+          max="500"
+          value="1"
+          class="quantity-input"
+          id="q6"
+        >
+
+        <button
+          class="qty-btn"
+          onclick="changeQty('q6',1)"
+        >+</button>
+
       </div>
-      <button class="add" onclick="addLargeToCart('10 Litres Liquid Soap',12000,'q8')">🛒 Add to Cart</button>
+
+      <button
+        class="add"
+        onclick="addLargeToCart('2.5 Litres Liquid Soap',4000,'q6')"
+      >
+        🛒 Add to Cart
+      </button>
+
     </div>
 
-    <div class="large-price">
-      <span class="size">15 Litres</span><strong>₦16,000</strong>
-      <span class="discount">5% off when buying more than 1</span>
-      <div class="quantity-row">
-        <button class="qty-btn" onclick="changeQty('q9',-1)">−</button>
-        <input type="number" min="1" max="500" value="1" class="quantity-input" id="q9">
-        <button class="qty-btn" onclick="changeQty('q9',1)">+</button>
-      </div>
-      <button class="add" onclick="addLargeToCart('15 Litres Liquid Soap',16000,'q9')">🛒 Add to Cart</button>
-    </div>
+
+    <!-- 5 LITRES -->
 
     <div class="large-price">
-      <span class="size">20 Litres</span><strong>₦23,000</strong>
-      <span class="discount">5% off when buying more than 1</span>
+
+      <img
+        src="./image/5liters.png"
+        alt="5 Litres Liquid Soap"
+      >
+
+      <span class="size">5 Litres</span>
+
+      <strong>₦7,000</strong>
+
+      <span class="discount">
+        5% off when buying more than 1
+      </span>
+
       <div class="quantity-row">
-        <button class="qty-btn" onclick="changeQty('q10',-1)">−</button>
-        <input type="number" min="1" max="500" value="1" class="quantity-input" id="q10">
-        <button class="qty-btn" onclick="changeQty('q10',1)">+</button>
+
+        <button
+          class="qty-btn"
+          onclick="changeQty('q7',-1)"
+        >−</button>
+
+        <input
+          type="number"
+          min="1"
+          max="500"
+          value="1"
+          class="quantity-input"
+          id="q7"
+        >
+
+        <button
+          class="qty-btn"
+          onclick="changeQty('q7',1)"
+        >+</button>
+
       </div>
-      <button class="add" onclick="addLargeToCart('20 Litres Liquid Soap',23000,'q10')">🛒 Add to Cart</button>
+
+      <button
+        class="add"
+        onclick="addLargeToCart('5 Litres Liquid Soap',7000,'q7')"
+      >
+        🛒 Add to Cart
+      </button>
+
     </div>
 
+
+    <!-- 10 LITRES -->
+
     <div class="large-price">
-      <span class="size">25 Litres</span><strong>₦28,000</strong>
-      <span class="discount">5% off when buying more than 1</span>
+
+      <img
+        src="./image/10liters.png"
+        alt="10 Litres Liquid Soap"
+      >
+
+      <span class="size">10 Litres</span>
+
+      <strong>₦12,000</strong>
+
+      <span class="discount">
+        5% off when buying more than 1
+      </span>
+
       <div class="quantity-row">
-        <button class="qty-btn" onclick="changeQty('q11',-1)">−</button>
-        <input type="number" min="1" max="500" value="1" class="quantity-input" id="q11">
-        <button class="qty-btn" onclick="changeQty('q11',1)">+</button>
+
+        <button
+          class="qty-btn"
+          onclick="changeQty('q8',-1)"
+        >−</button>
+
+        <input
+          type="number"
+          min="1"
+          max="500"
+          value="1"
+          class="quantity-input"
+          id="q8"
+        >
+
+        <button
+          class="qty-btn"
+          onclick="changeQty('q8',1)"
+        >+</button>
+
       </div>
-      <button class="add" onclick="addLargeToCart('25 Litres Liquid Soap',28000,'q11')">🛒 Add to Cart</button>
+
+      <button
+        class="add"
+        onclick="addLargeToCart('10 Litres Liquid Soap',12000,'q8')"
+      >
+        🛒 Add to Cart
+      </button>
+
+    </div>
+
+
+    <!-- 15 LITRES -->
+
+    <div class="large-price">
+
+      <img
+        src="./image/15liters.png"
+        alt="15 Litres Liquid Soap"
+      >
+
+      <span class="size">15 Litres</span>
+
+      <strong>₦16,000</strong>
+
+      <span class="discount">
+        5% off when buying more than 1
+      </span>
+
+      <div class="quantity-row">
+
+        <button
+          class="qty-btn"
+          onclick="changeQty('q9',-1)"
+        >−</button>
+
+        <input
+          type="number"
+          min="1"
+          max="500"
+          value="1"
+          class="quantity-input"
+          id="q9"
+        >
+
+        <button
+          class="qty-btn"
+          onclick="changeQty('q9',1)"
+        >+</button>
+
+      </div>
+
+      <button
+        class="add"
+        onclick="addLargeToCart('15 Litres Liquid Soap',16000,'q9')"
+      >
+        🛒 Add to Cart
+      </button>
+
+    </div>
+
+
+    <!-- 20 LITRES -->
+
+    <div class="large-price">
+
+      <img
+        src="./image/20 liters.png"
+        alt="20 Litres Liquid Soap"
+      >
+
+      <span class="size">20 Litres</span>
+
+      <strong>₦23,000</strong>
+
+      <span class="discount">
+        5% off when buying more than 1
+      </span>
+
+      <div class="quantity-row">
+
+        <button
+          class="qty-btn"
+          onclick="changeQty('q10',-1)"
+        >−</button>
+
+        <input
+          type="number"
+          min="1"
+          max="500"
+          value="1"
+          class="quantity-input"
+          id="q10"
+        >
+
+        <button
+          class="qty-btn"
+          onclick="changeQty('q10',1)"
+        >+</button>
+
+      </div>
+
+      <button
+        class="add"
+        onclick="addLargeToCart('20 Litres Liquid Soap',23000,'q10')"
+      >
+        🛒 Add to Cart
+      </button>
+
+    </div>
+
+
+    <!-- 25 LITRES -->
+
+    <div class="large-price">
+
+      <img
+        src="./image/25literss.png"
+        alt="25 Litres Liquid Soap"
+      >
+
+      <span class="size">25 Litres</span>
+
+      <strong>₦28,000</strong>
+
+      <span class="discount">
+        5% off when buying more than 1
+      </span>
+
+      <div class="quantity-row">
+
+        <button
+          class="qty-btn"
+          onclick="changeQty('q11',-1)"
+        >−</button>
+
+        <input
+          type="number"
+          min="1"
+          max="500"
+          value="1"
+          class="quantity-input"
+          id="q11"
+        >
+
+        <button
+          class="qty-btn"
+          onclick="changeQty('q11',1)"
+        >+</button>
+
+      </div>
+
+      <button
+        class="add"
+        onclick="addLargeToCart('25 Litres Liquid Soap',28000,'q11')"
+      >
+        🛒 Add to Cart
+      </button>
+
     </div>
 
   </div>
+
 
   <div class="info">
-    <strong>🎁 Souvenir & Bulk Orders</strong><br>
-    Need liquid soap for an event, office, business or souvenir package? Add the quantity you need to your cart and proceed to checkout.
-    <br><strong>💚 Larger bottles: 5% discount automatically applies when quantity is more than 1.</strong>
+
+    <strong>🎁 Souvenir & Bulk Orders</strong>
+
+    <br>
+
+    Need liquid soap for an event, office, business or souvenir package?
+    Add the quantity you need to your cart and proceed to checkout.
+
+    <br>
+
+    <strong>
+      💚 Larger bottles: 5% discount automatically applies when quantity is more than 1.
+    </strong>
+
   </div>
+
 </section>
 
-<div id="toast">Cart added successfully</div>
+
+<div id="toast">
+  Cart added successfully
+</div>
+
 
 <script>
+
 function showToast(message="Cart added successfully"){
+
   const toast=document.getElementById("toast");
+
   toast.textContent=message;
+
   toast.classList.add("show");
-  setTimeout(()=>toast.classList.remove("show"),2500);
+
+  setTimeout(
+    ()=>toast.classList.remove("show"),
+    2500
+  );
+
 }
+
 
 function changeQty(id, amount){
+
   const input=document.getElementById(id);
+
   let value=parseInt(input.value)||1;
+
   value+=amount;
+
   const min=parseInt(input.min)||1;
+
   const max=parseInt(input.max)||1000;
+
   if(value<min)value=min;
+
   if(value>max)value=max;
+
   input.value=value;
+
 }
+
 
 function addToCart(name,price,quantityId){
-  let qty=parseInt(document.getElementById(quantityId).value)||1;
+
+  let qty=parseInt(
+    document.getElementById(quantityId).value
+  )||1;
+
   if(qty<1)qty=1;
 
-  let cart=JSON.parse(localStorage.getItem("cart"))||[];
-  let existing=cart.find(item=>item.name===name);
+  let cart=JSON.parse(
+    localStorage.getItem("cart")
+  )||[];
 
-  if(existing) existing.quantity+=qty;
-  else cart.push({name,price,quantity:qty});
-
-  localStorage.setItem("cart",JSON.stringify(cart));
-  showToast("🛒 Added to cart");
-}
-
-function addLargeToCart(name,price,quantityId){
-  let qty=parseInt(document.getElementById(quantityId).value)||1;
-  if(qty<1)qty=1;
-
-  let cart=JSON.parse(localStorage.getItem("cart"))||[];
-  let existing=cart.find(item=>item.name===name);
+  let existing=cart.find(
+    item=>item.name===name
+  );
 
   if(existing){
+
     existing.quantity+=qty;
+
   }else{
-    cart.push({name,price,quantity:qty,largeBottle:true});
+
+    cart.push({
+      name,
+      price,
+      quantity:qty
+    });
+
   }
 
-  localStorage.setItem("cart",JSON.stringify(cart));
-  showToast(qty>1 ? "🛒 Added with 3% discount" : "🛒 Added to cart");
+  localStorage.setItem(
+    "cart",
+    JSON.stringify(cart)
+  );
+
+  showToast("🛒 Added to cart");
+
 }
+
+
+function addLargeToCart(name,price,quantityId){
+
+  let qty=parseInt(
+    document.getElementById(quantityId).value
+  )||1;
+
+  if(qty<1)qty=1;
+
+  let cart=JSON.parse(
+    localStorage.getItem("cart")
+  )||[];
+
+  let existing=cart.find(
+    item=>item.name===name
+  );
+
+  if(existing){
+
+    existing.quantity+=qty;
+
+  }else{
+
+    cart.push({
+      name,
+      price,
+      quantity:qty,
+      largeBottle:true
+    });
+
+  }
+
+  localStorage.setItem(
+    "cart",
+    JSON.stringify(cart)
+  );
+
+  showToast(
+    qty>1
+      ? "🛒 Added with 3% discount"
+      : "🛒 Added to cart"
+  );
+
+}
+
 </script>
+
 </body>
 </html>

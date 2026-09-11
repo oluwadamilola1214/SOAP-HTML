@@ -459,6 +459,11 @@ h1{
   <strong id="discount">-₦0</strong>
 </div>
 
+<!-- <div class="summary-row">
+  <span>Delivery Fee</span>
+  <strong id="deliveryFee">Free</strong>
+</div> -->
+
 <div class="summary-row total-row">
   <span>Total to Pay</span>
   <strong id="total">₦0</strong>
@@ -507,7 +512,25 @@ h1{
 
 </div>
 
+<!-- DELIVERY LOCATION -->
 
+<div class="form-group">
+
+  <label for="customerName">
+    Delivery Location
+  </label>
+
+  <input
+    type="text"
+    id="customerName"
+    placeholder="Enter delivery location (e.g, Abeokuta, Lagos, Ibadan, etc.)
+    "
+  >
+<div>Note: Outside Abeokuta attract fee depending on your location</div>
+</div>
+
+
+<br>
 <div class="form-group">
 
   <label for="customerAddress">
@@ -521,6 +544,8 @@ h1{
   ></textarea>
 
 </div>
+
+
 
 
 <!-- PAYMENT INFORMATION -->
@@ -567,7 +592,7 @@ h1{
 <p class="whatsapp-note">
   Your order details will be sent to Apinkeade on WhatsApp.
 </p>
-```
+
 
   </div>
 
@@ -784,14 +809,20 @@ function displayCart(){
   let discount = 0;
 
 
-  if(largeBottleQuantity > 2){
+  if(largeBottleQuantity >= 2){
 
     discount = subtotal * 0.05;
 
   }
 
 
-  const total = subtotal - discount;
+  const deliveryLocation =
+    document.getElementById("deliveryLocation")?.value || "abeokuta";
+
+  const deliveryFee =
+    deliveryLocation === "outside-abeokuta" ? 3000 : 0;
+
+  const total = subtotal - discount + deliveryFee;
 
 
   /* Summary */
@@ -838,11 +869,11 @@ function displayCart(){
 
     if(largeBottleQuantity > 0){
 
-      const remaining = 3 - largeBottleQuantity;
+      const remaining = 2 - largeBottleQuantity;
 
       discountMessage.innerHTML = `
         💡 Add ${remaining} more large bottle${remaining > 1 ? "s" : ""}
-        to qualify for the 5% bulk discount.
+        to qualify for the 5% discount.
       `;
 
     }else{
@@ -1030,14 +1061,20 @@ function checkout(){
   let discount = 0;
 
 
-  if(largeBottleQuantity > 2){
+  if(largeBottleQuantity >= 2){
 
     discount = subtotal * 0.05;
 
   }
 
 
-  const total = subtotal - discount;
+  const deliveryLocation =
+    document.getElementById("deliveryLocation")?.value || "abeokuta";
+
+  const deliveryFee =
+    deliveryLocation === "outside-abeokuta" ? 3000 : 0;
+
+  const total = subtotal - discount + deliveryFee;
 
 
   /* ============================================
@@ -1106,6 +1143,20 @@ function checkout(){
       "%0A";
 
   }
+
+  message +=
+    "Delivery Location: " +
+    encodeURIComponent(
+      deliveryLocation === "outside-abeokuta"
+        ? "Outside Abeokuta"
+        : "Abeokuta"
+    ) +
+    "%0A";
+
+  message +=
+    "Delivery Fee: " +
+    encodeURIComponent(formatMoney(deliveryFee)) +
+    "%0A";
 
 
   message +=
